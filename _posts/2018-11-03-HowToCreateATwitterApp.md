@@ -11,8 +11,11 @@ share: true
 toc: true
 ---
 
+---
+
 ![img]({{ '/assets/images/2018-11-03-HowToCreateATwitterApp/image1.png' | relative_url }}){: .center-image }*Apply for Access*
 
+--- 
 # Introduction
 This article will walk you through the steps to create a simple Twitter App using Python.
 
@@ -23,7 +26,7 @@ Prior to creating a Twitter App, you will need the following:
 * A Twitter Account
 
 # Instructions
-The steps to create a Twitter App is broken down into the following steps:
+The process to create a Twitter App is broken down into the following steps:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 1 - Apply for a Developer Account  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 2 - Create an App in Twitter  
