@@ -5,4 +5,4 @@ title: Resources
 ---
 
 # Some info
-...about how cool resources here ;)
+...cool resources here ;)

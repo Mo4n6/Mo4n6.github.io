@@ -5,4 +5,4 @@ title: Books
 ---
 
 # Some info
-...about how cool books here ;)
+...cool books here ;)
