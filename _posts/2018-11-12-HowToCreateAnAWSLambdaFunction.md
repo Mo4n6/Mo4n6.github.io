@@ -30,14 +30,14 @@ The function can be written in  different programming languages.  Here is a li
 # Instructions
 The process to create a Lambda Function is broken down into the following steps:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 1 - AWS account overview  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 2 - Create a Lambda function  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 1 - AWS Account Overview  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 2 - Create a Lambda Function  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 3 - Add Trigger from 'CloudWatch Event'
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 4 - Create the handler function
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 5 - Zip your code and upload it
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 6 - Configure test event and test
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 4 - Create the Handler Function
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 5 - Zip your Code and Upload it
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 6 - Configure Test Event and Test
 
-## Step 1 -  AWS account overview
+## Step 1 -  AWS Account Overview
 
 You will need to sign up for an AWS Account.  The sign up process will require you to enter Credit Card information.  There are different tiers for an AWS account.  With the 'Free Tier' you can run 1M Requests per Month and 400,000 GB-seconds of compute time per month.
 
@@ -46,7 +46,7 @@ Links:
 [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/)
 
 
-## Step 2 - Create a Lambda function
+## Step 2 - Create a Lambda Function
 
 Now that you've signed up for an AWS account, you're ready to create a Lambda function.
 
@@ -56,11 +56,11 @@ From 'Services' Menu select 'Lambda'.
 
 Click on ' Create a function'.  Select 'Author from scratch'.
 
-![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image5.png' | relative_url }}){: .center-image }*Create a function 1*
+![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image5.png' | relative_url }}){: .center-image }*Create a Function 1*
 
 Fill in the 'Name' of the function, Runtime, Role and Role Name.
 
-![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image6.png' | relative_url }}){: .center-image }*Create a function 2*
+![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image6.png' | relative_url }}){: .center-image }*Create a Function 2*
 
 Roles are created based on the permissions that you want to grant to your AWS Lambda function.
 
@@ -70,7 +70,7 @@ AWS Lambda Permissions Model can be reviewed at https://docs.aws.amazon.com/lam
 
 Once you created your function, you will see something like this.  Click on 'CloudWatch Events' on the left tool bar.
 
-![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image7.png' | relative_url }}){: .center-image }*Create a function 2*
+![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image7.png' | relative_url }}){: .center-image }*Create a Function 2*
 
 Configure the trigger by configuring a new Rule.  You can use cron or rate expressions to configure the rule.  Here the rule is configured with cron (0 13 * * ? *) to run daily at 13:00 GMT.
 
@@ -84,7 +84,7 @@ Save your function after configuring the Trigger Rule.  You will see something 
 
 ![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image9.png' | relative_url }}){: .center-image }*Cron Expression Trigger*
 
-## Step 4 - Create the handler function
+## Step 4 - Create the Handler Function
 
 Your code needs to contain a lambda event handler.  The name of the event handler function needs to be configured in the AWS Web GUI.  This is shown below:
 
@@ -105,7 +105,7 @@ return {
 
 Your code will need to include a handler similar to above.  The #ToDo implement can be replaced with main(), if you have a main() function defined in your code.
 
-## Step 5 - Zip your code and upload it
+## Step 5 - Zip your Code and Upload it
 
 Now that your code is ready.  There is one more step prior to creating a zip file.
 
@@ -125,13 +125,13 @@ pip instaall python-twitter -t $(pwd)
 
 After the code directory includes all the 3rd party libraries and the code, you need to create a .zip file that includes everything.  The .zip file may look something like this.
 
-![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image11.png' | relative_url }}){: .center-image }*Lambda function .zip file*
+![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image11.png' | relative_url }}){: .center-image }*Lambda Function .zip File*
 
 Now upload the .zip file to the Lambda function.
 
-![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image12.png' | relative_url }}){: .center-image }*Upload .zip file*
+![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image12.png' | relative_url }}){: .center-image }*Upload .zip File*
 
-## Step 6 - Configure test event and test
+## Step 6 - Configure Test Event and Test
 Now you have created a trigger and uploaded your code, you're ready for testing.
 
 Click on 'Test' button to create a test event.
@@ -140,7 +140,7 @@ Click on 'Test' button to create a test event.
 
 Here is how the test event creation may look like:
 
-![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image14.png' | relative_url }}){: .center-image }*Create test event*
+![img]({{ '/assets/images/2018-11-12-HowToCreateAnAWSLambdaFunction/P2-Image14.png' | relative_url }}){: .center-image }*Create Test Event*
 
 You can configure the test event based on the scenario you want to test.  If your code doesn't require any input parameters, you can click on 'Create' to test your code.  Make sure to 'Save' your function periodically.
 

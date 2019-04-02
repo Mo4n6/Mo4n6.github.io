@@ -15,7 +15,7 @@ toc: true
 
 ![img]({{ '/assets/images/2018-11-03-HowToCreateATwitterApp/image1.png' | relative_url }}){: .center-image }*Apply for Access*
 
---- 
+---
 # Introduction
 This article will walk you through the steps to create a simple Twitter App using Python.
 
@@ -32,7 +32,7 @@ The process to create a Twitter App is broken down into the following steps:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 2 - Create an App in Twitter  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 3 - Create Keys and Tokens for your App  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 4 - Install Python-Twitter Library  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 5 - Create a Python script that posts to Twitter   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 5 - Create a Python Script that Posts to Twitter   
 
 
 ## Step 1 - Apply for a Developer Account
@@ -95,7 +95,7 @@ The first time I tired to install the library, I got the following error message
 
 Running the install command again resolved the issue.
 
-## Step 5 - Create a Python script that posts to Twitter
+## Step 5 - Create a Python Script that Posts to Twitter
 I know it's been fun, however we're almost at the end.  Now time to write a simple Python program that makes a post to Twitter.
 
 Make sure to import twitter at top of your program:
