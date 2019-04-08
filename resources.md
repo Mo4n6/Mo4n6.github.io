@@ -1,8 +1,7 @@
 ---
 layout: page
-title: Resources
-
+title: About
 ---
 
-# Some info
-...cool resources here ;)
+# Resources
+This page will contain a list of awesome cool resources ;)

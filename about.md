@@ -3,10 +3,8 @@ layout: page
 title: About
 ---
 
-# Some info
-...about how cool you are ;)
-
-
+# About Me
+I am Mo.  Enough about me!!!  Hope you're enjoying the blog.
 
 If you like the website theme you can download it here:
 

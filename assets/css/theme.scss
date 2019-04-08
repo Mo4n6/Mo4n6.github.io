@@ -32,19 +32,21 @@ $note-color: #87CEFA;
 $warning-color: #ffff00;
 // use this or pick any from /css/pics/background folder or from transparenttextures.com
 $background-pattern: 'random-grey-variations.png';
-
+//$times: "Arial", sans-serif;
 //********************************************************
 //                  Common styles
 //********************************************************
 body {
   color: $font-color;
   background: $background-color url(pics/background/#{$background-pattern});
+  //font: 18px $times;
 }
 .card {
   background-color: $post-panel-color;
   box-shadow: 0 0 0 0, 0 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   padding: 20px;
+  //font: 18px $times;
   font-size: 14px;
 }
 .main-page {
@@ -359,7 +361,7 @@ table.inner-borders {
 	top:80px;
 }
 .box {
-	width:70%;
+	width:100%;
 	height:200px;
 	background:#FFF;
 	margin:40px auto;
