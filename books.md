@@ -6,7 +6,7 @@ description: Books that may be helpful
 share: true
 toc: true
 ---
-Here are some good books to read for when you're bored:
+Here are some good books to read when you're bored:
 
 # Biographies
 * The 50th Law by 50 Cent and Robert Greene
