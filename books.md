@@ -46,6 +46,7 @@ Here are some good books to read when you're bored:
 
 # History
 * The Lessons of History by Will, Ariel Durant
+* Sapiens by Yuval Noah Harari
 
 # Literature & Fiction
 * 1Q84 by Haruki Murakami
