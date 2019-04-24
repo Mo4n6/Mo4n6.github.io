@@ -203,7 +203,7 @@ toc: true
 * [Guild of Sysadmin](https://t.me/guildofsysadmin)
 
 ### Twitter Accounts to Follow
-* [hackerfantastic](https://twitter.com/hackerfantastic)
+* Check out my Twitter for accounts to follow.
 
 ---
 
