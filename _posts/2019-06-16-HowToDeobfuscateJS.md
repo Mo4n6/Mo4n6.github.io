@@ -2,7 +2,7 @@
 layout: post
 title: How to Deobfuscate JavaScript (JS)
 date:   2019-06-16
-description: It's a weekend and you ran out of things to do?  Why don't you try deobfuscating this malicious Javascript!
+description: It's the weekend and you ran out of things to do?  Why don't you try deobfuscating this malicious Javascript!
 
 tags:
 - REM
