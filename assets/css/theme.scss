@@ -30,27 +30,38 @@ $post-panel-color: #39393a;
 $footer-background-color: #292c2f;
 $note-color: #87CEFA;
 $warning-color: #ffff00;
+$family-font: Helvetica,Arial,sans-serif;
 // use this or pick any from /css/pics/background folder or from transparenttextures.com
 $background-pattern: 'random-grey-variations.png';
-//$times: "Arial", sans-serif;
+$times: Helvetica,Arial,sans-serif;
 //********************************************************
 //                  Common styles
 //********************************************************
 body {
+
   color: $font-color;
   background: $background-color url(pics/background/#{$background-pattern});
-  //font: 18px $times;
+  font: 16px $times;
+  line-height: 1.5;
+
 }
 .card {
   background-color: $post-panel-color;
   box-shadow: 0 0 0 0, 0 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  padding: 20px;
-  //font: 18px $times;
-  font-size: 14px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font: 16px $times;
+  //font-size: 14px;
 }
 .main-page {
   width: 75%;
+}
+
+.container{
+  max-width: 85%
 }
 
 h1 { font-size: 2em; }
@@ -180,9 +191,10 @@ ul.sideBarTags {
 //                    Post
 //********************************************************
 h2.post-title {
-  padding-top: 10px;
+  padding-top: 30px;
   text-align: left;
 }
+
 div.post-meta {
   border-width: 1px 0;
   border-color: #666666;
@@ -208,6 +220,7 @@ div.post-meta {
   width: 100%;
   position: relative;
   margin-top: 32px;
+
   text-align: center;
 }
 
@@ -256,7 +269,7 @@ nav {
   background-color: #222;
   border-color: #080808;
   font-size: 18px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: sans-serif,"Ubuntu";
   padding: 0 10px !important;
   border-top: 3px #3CA2A2 solid;
   border-bottom: 1px #000000 solid;

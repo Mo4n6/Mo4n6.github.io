@@ -9,15 +9,24 @@
     <title>{{ site.name }}{% if page.title %} | {{ page.title }} {% endif %}</title>
     <meta name="theme-color" content="#222222"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/popper.min.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/bootstrap4.min.js' | relative_url }}"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+
     <script src="{{ '/assets/js/header.js' | relative_url }}"></script>
     <script src="{{ '/assets/css/svg-with-js/js/fontawesome-all.js' | relative_url }}"></script>
-    <link href="{{ '/assets/css/bootstrap4.min.css' | relative_url }}" rel="stylesheet">
+
     <link href="{{ '/assets/css/theme.css' | relative_url }}" rel="stylesheet">
     <link href="{{ '/assets/css/syntax.css' | relative_url }}" rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+
  </head>
 
 <body>
@@ -28,7 +37,7 @@
 <script type="text/javascript">
     WebFontConfig = {
         google: {
-            families: ['Ubuntu::latin']
+            families: ['Ubuntu::latin' ]
         }
     };
     (function () {
@@ -53,10 +62,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="{{ '' | relative_url }}/">/home</a>
+                <a class="nav-item nav-link" href="{{ '/books/index.html' | relative_url }}">/books</a>
+                <a class="nav-item nav-link" href="{{ '/podcasts/index.html' | relative_url }}">/podcasts</a>
+                <a class="nav-item nav-link" href="{{ '/resources/index.html' | relative_url }}">/resources</a>
                 <a class="nav-item nav-link" href="{{ '/archive/index.html' | relative_url }}">/archive</a>
                 <a class="nav-item nav-link" href="{{ '/tags/index.html' | relative_url }}">/tags</a>
-                <a class="nav-item nav-link" href="{{ '/resources/index.html' | relative_url }}">/resources</a>
-                <a class="nav-item nav-link" href="{{ '/books/index.html' | relative_url }}">/books</a>
                 <a class="nav-item nav-link" href="{{ '/about/index.html' | relative_url }}">/about</a>
             </div>
         </div>
