@@ -10,7 +10,7 @@ tags:
 
 
 share: true
-toc: false
+toc: true
 ---
 
 <div style="text-align:center">
@@ -22,47 +22,6 @@ toc: false
 
 [Kringlecon 2 - Holiday Hack Challenge 2019](https://holidayhackchallenge.com/2018/story.html)
 
-
-
-## Table of Content
-1. [Introduction](#Introduction)
-    - [Protips](#Protips)
-    - [Holiday Hack Challenge Logo](#Holiday-Hack-Challenge-Logo)
-1. [Objective 0 - Talk to Santa in the Quad](#Objective-0---Talk-to-Santa-in-the-Quad)
-1. [Objective 1 - Find the Turtle Doves](#Objective-1---Find-the-Turtle-Doves)
-1. [Objective 2 - Unredact Threatening Document](#Objective-2---Unredact-Threatening-Document)
-1. [Objective 3 - Windows Log Analysis: Evaluate Attack Outcome](#Objective-3---Windows-Log-Analysis:-Evaluate-Attack-Outcome)
-    - [Escape Ed - Terminal Challenge](#Escape-Ed---Terminal-Challenge)
-    - [Objective 3 - Walkthrough](#Objective-3---Walkthrough)
-1. [Objective 4 - Windows Log Analysis: Determine Attacker Technique](#Objective-4---Windows-Log-Analysis:-Determine-Attacker-Technique)
-    - [Linux Path - Terminal Challenge](#Linux-Path---Terminal-Challenge)
-    - [Objective 4 - Walkthrough](#Objective-4---Walkthrough)
-1. [Objective 5 - Network Log Analysis: Determine Compromised System](#Objective-5---Network-Log-Analysis:-Determine-Compromised-System)
-    - [Xmas Cheer Laser - Terminal Challenge](#Xmas-Cheer-Laser---Terminal-Challenge)
-    - [Objective 5 - Walkthrough](#Objective-5---Walkthrough)
-1. [Objective 6 - Splunk](#Objective-6---Splunk)
-    - [Splunk Training Questions - Terminal Challenge](#Splunk-Training-Questions---Terminal-Challenge)
-    - [Objective 6 - Walkthrough](#Objective-6---Walkthrough)
-1. [Objective 7 - Get Access To The Steam Tunnels](#Objective-7---Get-Access-To-The-Steam-Tunnels)
-    - [Frosty Keypad Challenge](#Frosty-Keypad-Challenge)
-    - [Holiday Hack Trial - Terminal Challenge](#Holiday-Hack-Trial---Terminal-Challenge)
-    - [Objective 7 - Walkthrough](#Objective-7---Walkthrough)
-1. [Objective 8 - Bypassing the Frido Sleigh CAPTEHA](#Objective-8---Bypassing-the-Frido-Sleigh-CAPTEHA)
-    - [Nyanshell - Terminal Challenge](#Nyanshell---Terminal-Challenge)
-    - [Objective 8 - Walkthrough](#Objective-8---Walkthrough)
-1. [Objective 9 - Retrieve Scraps of Paper from Server](#Objective-9---Retrieve-Scraps-of-Paper-from-Server)
-    - [Graylog - Terminal Challenge](#Graylog---Terminal-Challenge)
-    - [Objective 9 - Walkthrough](#Objective-9---Walkthrough)
-1. [Objective 10 - Recover Cleartext Document](#Objective-10---Recover-Cleartext-Document)
-    - [Mongo Pilfer - Terminal Challenge](#Mongo-Pilfer---Terminal-Challenge)
-	- [Objective 10 - Walkthrough](#Objective-10---Walkthrough)
-1. [Objective 11 - Open the Sleigh Shop Door](#Objective-11---Open-the-Sleigh-Shop-Door)
-    - [Smart Braces - Terminal Challenge](#Smart-Braces---Terminal-Challenge)
-    - [Objective 11 - Walkthrough](#Objective-11---Walkthrough)
-1. [Objective 12 - Filter Out Poisoned Sources of Weather Data](#Objective-12---Filter-Out-Poisoned-Sources-of-Weather-Data)
-    - [Zeek JSON Analysis - Terminal Challenge](#Zeek-JSON-Analysis---Terminal-Challenge)
-    - [Objective 12 - Walkthrough](#Objective-12---Walkthrough)
-1. [Conclusion](#Conclusion)
 
 <div style="page-break-after: always; visibility: hidden">
 \pagebreak
@@ -409,7 +368,7 @@ After you read the ed Editor Basics you find the solution for this terminal chal
 </div><br>
 
 
-#### Escape Ed - Solution:
+#### Escape Ed - Solution
 
 <div style="text-align:center">
     <br>
@@ -420,7 +379,7 @@ After you read the ed Editor Basics you find the solution for this terminal chal
 </div><br>
 
 Answer:
-```Solution:
+```Solution
 Press q and press Enter.
 ```
 
@@ -556,7 +515,7 @@ You check the Path.
 
 You run '/bin/ls' to get dir listing.
 <br>
-#### Linux Path - Solution:
+#### Linux Path - Solution
 
 <div style="text-align:center">
     <br>
@@ -937,7 +896,7 @@ Now you have the temperature, angle, gas composition, refraction value. You set 
 
 
 <br>
-#### Xmas Cheer Laser - Solution:
+#### Xmas Cheer Laser - Solution
 Answer:
 ``` powershell
 (Invoke-WebRequest -Uri http://localhost:1225/api/off).RawContent
@@ -1079,7 +1038,7 @@ For question 5, you search for ```index=main sourcetype=stoq | table _time resul
 For question 6, you can find the password in the malicious email carl received in question 5.
 
 <br>
-#### Splunk Training Questions - Solution:
+#### Splunk Training Questions - Solution
 <div style="text-align:center">
     <br>
      <img src="\assets\images\2020-01-10-KringleCon2\Image73.PNG"
@@ -1408,7 +1367,7 @@ You update the distance to 8000 and hash to the above and press ```Go```.
 
 
 <br>
-#### Holiday Hack Trial - Solution:
+#### Holiday Hack Trial - Solution
 Answer:
 ```
 Easy:
@@ -1655,7 +1614,7 @@ You run the success script after.
 </div><br>
 
 
-####  Nyanshell - Solution:
+####  Nyanshell - Solution
 Answer:
 ```
 sudo chattr -i /bin/nsh
@@ -2006,7 +1965,7 @@ You read the Graylog Docs. You start the terminal challenge and login with crede
 
 
 
-#### Graylog - Solution:
+#### Graylog - Solution
 Answer:
 ```
 ElfU Graylog Incident Response Report
@@ -2353,7 +2312,7 @@ You run the command that is displayed from the above command.
 </div><br>  
 
 
-####  Mongo Pilfer - Solution:
+####  Mongo Pilfer - Solution
 Answer:
 ```
 mongo localhost:12121
@@ -2671,7 +2630,7 @@ You read the hint for this challenge and write the IP tables for the challenge.
 </div><br>  
 
 
-####  Smart Braces - Solution:
+####  Smart Braces - Solution
 Answer:
 ```
 sudo iptables -F
@@ -3162,7 +3121,7 @@ You run the ```runtoanswer``` and type in ```13.107.21.200```.
 
 
 
-####  Zeek JSON Analysis - Solution:
+####  Zeek JSON Analysis - Solution
 Answer:
 ```
 13.107.21.200
