@@ -30,7 +30,7 @@ $post-panel-color: #39393a;
 $footer-background-color: #292c2f;
 $note-color: #87CEFA;
 $warning-color: #ffff00;
-$family-font: Helvetica,Arial,sans-serif;
+$family-font: charter, Georgia, Cambria, "Times New Roman", Times, serif;
 // use this or pick any from /css/pics/background folder or from transparenttextures.com
 $background-pattern: 'random-grey-variations.png';
 $times: Helvetica,Arial,sans-serif;
@@ -41,27 +41,29 @@ body {
 
   color: $font-color;
   background: $background-color url(pics/background/#{$background-pattern});
-  font: 16px $times;
+  font: 21px $times;
   line-height: 1.5;
 
 }
 .card {
   background-color: $post-panel-color;
   box-shadow: 0 0 0 0, 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  font: 16px $times;
-  //font-size: 14px;
+  border-radius: 20px;
+
+
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+
+
 }
 .main-page {
   width: 75%;
 }
 
 .container{
-  max-width: 85%
+  max-width: 95%
 }
 
 h1 { font-size: 2em; }
