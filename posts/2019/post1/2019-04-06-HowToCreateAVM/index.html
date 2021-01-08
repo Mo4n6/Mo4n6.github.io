@@ -1,0 +1,1156 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../images/terminal-24.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks - Mo Sharif</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="Mo Sharif" class="md-header-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Mo Sharif
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Mo Sharif" class="md-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    Mo Sharif
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Posts
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Posts" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Posts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+    
+    <label class="md-nav__link" for="nav-2-1">
+      2020
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2020" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        2020
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2020/kringlecon3/" class="md-nav__link">
+      KringleCon 3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      2019
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2019" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        2019
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../kringlecon2/2020-01-13-KringleCon2/" class="md-nav__link">
+      KringleCon 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../post3/2019-06-16-HowToDeobfuscateJS/" class="md-nav__link">
+      How to Deobfuscate JavaScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../post2/2019-04-22-HowToSignUpForHackTheBox/" class="md-nav__link">
+      How to Sign Up for Hack The Box
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    Warning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-vm" class="md-nav__link">
+    The "VM"
+  </a>
+  
+    <nav class="md-nav" aria-label="The "VM"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-and-install-a-virtualization-software" class="md-nav__link">
+    Download and Install a Virtualization Software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-a-windows-10-vm" class="md-nav__link">
+    Download a Windows 10 VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolation" class="md-nav__link">
+    Isolation
+  </a>
+  
+    <nav class="md-nav" aria-label="Isolation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-guest-tools-optional" class="md-nav__link">
+    Install Guest Tools (Optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Guest Tools (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pros" class="md-nav__link">
+    Pros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cons" class="md-nav__link">
+    Cons
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-isolation" class="md-nav__link">
+    Network Isolation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-isolation" class="md-nav__link">
+    Host Isolation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-installation" class="md-nav__link">
+    Configuration and Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration and Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-10-vm-configuration" class="md-nav__link">
+    Windows 10 VM Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows 10 VM Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perform-windows-update" class="md-nav__link">
+    Perform Windows Update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-settings" class="md-nav__link">
+    Privacy Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashwindows-folder-sharing" class="md-nav__link">
+    Bash/Windows Folder Sharing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-flare" class="md-nav__link">
+    Install FLARE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-commando" class="md-nav__link">
+    Install COMMANDO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-sift" class="md-nav__link">
+    Install SIFT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-olefile" class="md-nav__link">
+    Install olefile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-kape" class="md-nav__link">
+    Install KAPE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-ms-office-optional" class="md-nav__link">
+    Install MS Office (Optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-and-snapshot" class="md-nav__link">
+    Cleanup and Snapshot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+    
+    <label class="md-nav__link" for="nav-2-3">
+      2018
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2018" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        2018
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2018/post3/2018-12-16-HowToCreateAnAWSLambdaLayer/" class="md-nav__link">
+      How to Create an AWS Lambda Layer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2018/post2/2018-11-12-HowToCreateAnAWSLambdaFunction/" class="md-nav__link">
+      How to Create an AWS Lambda Function
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2018/post1/2018-11-03-HowToCreateATwitterApp/" class="md-nav__link">
+      How to Create a Twitter App
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../books/" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../resources/" class="md-nav__link">
+      Resources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://www.patreon.com/mo4n6" class="md-nav__link">
+      Donate
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    Warning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-vm" class="md-nav__link">
+    The "VM"
+  </a>
+  
+    <nav class="md-nav" aria-label="The "VM"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-and-install-a-virtualization-software" class="md-nav__link">
+    Download and Install a Virtualization Software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-a-windows-10-vm" class="md-nav__link">
+    Download a Windows 10 VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolation" class="md-nav__link">
+    Isolation
+  </a>
+  
+    <nav class="md-nav" aria-label="Isolation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-guest-tools-optional" class="md-nav__link">
+    Install Guest Tools (Optional)
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Guest Tools (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pros" class="md-nav__link">
+    Pros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cons" class="md-nav__link">
+    Cons
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-isolation" class="md-nav__link">
+    Network Isolation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-isolation" class="md-nav__link">
+    Host Isolation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-installation" class="md-nav__link">
+    Configuration and Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration and Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-10-vm-configuration" class="md-nav__link">
+    Windows 10 VM Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows 10 VM Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perform-windows-update" class="md-nav__link">
+    Perform Windows Update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-settings" class="md-nav__link">
+    Privacy Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashwindows-folder-sharing" class="md-nav__link">
+    Bash/Windows Folder Sharing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-flare" class="md-nav__link">
+    Install FLARE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-commando" class="md-nav__link">
+    Install COMMANDO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-sift" class="md-nav__link">
+    Install SIFT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-olefile" class="md-nav__link">
+    Install olefile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-kape" class="md-nav__link">
+    Install KAPE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-ms-office-optional" class="md-nav__link">
+    Install MS Office (Optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-and-snapshot" class="md-nav__link">
+    Cleanup and Snapshot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This article will walk you through creating a Windows 10 VM for Malware Analysis, Forensic and Offensive Tasks.  </p>
+<h3 id="warning">Warning<a class="headerlink" href="#warning" title="Permanent link">&para;</a></h3>
+<p>This VM is not for everyone.  If you're thinking this is not a good idea, you're right! You should probably skip this article and save yourself some time!  </p>
+<p>For the rest, lets continue.  As one of my heroes use to say...
+<div class="highlight"><pre><span></span><code>With great power comes great responsibility.
+</code></pre></div>
+Here is what we're trying to build:</p>
+<hr />
+<p><a href="../../../../assets/images/2019-04-06-HowToCreateAVM/Image3.png"><img alt="post 1" src="../../../../assets/images/2019-04-06-HowToCreateAVM/Image3.png" /></a></p>
+<p><em>The VM</em></p>
+<hr />
+<h2 id="the-vm">The "VM"<a class="headerlink" href="#the-vm" title="Permanent link">&para;</a></h2>
+<h3 id="download-and-install-a-virtualization-software">Download and Install a Virtualization Software<a class="headerlink" href="#download-and-install-a-virtualization-software" title="Permanent link">&para;</a></h3>
+<p>There are many different flavors of virtualization software.  Here are some of the links for easy access:</p>
+<ul>
+<li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a></li>
+<li><a href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">Hyper-V</a></li>
+<li><a href="https://my.vmware.com/web/vmware/downloads">VMware Workstation</a></li>
+<li><a href="https://my.vmware.com/web/vmware/downloads">VMware Fusion</a></li>
+<li><a href="https://www.parallels.com/ca/">Parallels</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_platform_virtualization_software">Others</a></li>
+</ul>
+<p>This article uses VirtualBox however you can any virtualization software.  </p>
+<p>If you haven't by this point, download and install your virtualization software.</p>
+<h3 id="download-a-windows-10-vm">Download a Windows 10 VM<a class="headerlink" href="#download-a-windows-10-vm" title="Permanent link">&para;</a></h3>
+<p>Thanks to Microsoft we can download a VM directly from their website and save the headache and time installing an OS.</p>
+<p>Here are different options for Windows 10 VM:
+* <a href="https://developer.microsoft.com/en-us/windows/downloads/virtual-machines">Get a Windows 10 development environment</a>
+* <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/">Test Microsoft Edge/IE version VMs</a></p>
+<p>I prefer the Windows 10 Development environment.  It is a little larger than the other VMs, but it comes with Visual Studio 2017 and Windows Subsystem for Linux (Ubuntu) installed.  You're getting two installed OSes by just downloading a single VM.</p>
+<p>A couple of notes:
+<div class="highlight"><pre><span></span><code>Default Windows password for these VMs are &#39;Passw0rd!&#39;.
+Default Bash su/sudo password is &#39;password&#39;
+</code></pre></div>
+If you haven't by this point, download and import your Windows 10 VM into your virtualization software.</p>
+<hr />
+<p><a href="../../../../assets/images/2019-04-06-HowToCreateAVM/Image1.png"><img alt="post 1" src="../../../../assets/images/2019-04-06-HowToCreateAVM/Image1.png" /></a></p>
+<p><em>Unicorn VM</em></p>
+<hr />
+<p><strong>Very Important: If you haven't picked a COOL AMAZING name for your VM, stop here and meditate on it.  Do Not Proceed until you have done this step.</strong></p>
+<p>Okay, lets move on to isolation.</p>
+<h2 id="isolation">Isolation<a class="headerlink" href="#isolation" title="Permanent link">&para;</a></h2>
+<p>On to a more challenging topic, Isolation.  This is a NP-hard problem.  If you haven't spent some time thinking about isolation yet, stop and meditate on it.  Build the perfect isolated environment in your head and then come up with ways to escape it.  Here is an <a href="https://en.wikipedia.org/wiki/AI_box">article</a> that may help with your meditation.</p>
+<p>Some of the questions that you need to think about:
+* What are the ways something can escape the VM?
+* What are the likelihood of these ways?
+* What's the worst thing that can happen if something escapes the VM?
+* How can I recover (data, system, myself)?
+* Can the Host be hardened?</p>
+<p>This section will vary for every individual.  The level of isolation required is propositional to the importance and level of secrecy of the information you have or are close to.  Are you or coworkers protecting Propriety information, Patient information or Pandora's box? In the later case, an underground mountain with no internet access may be a wise choice.  </p>
+<p>A good analyst is mindful of these answers when doing any type of analysis.</p>
+<h3 id="install-guest-tools-optional">Install Guest Tools (Optional)<a class="headerlink" href="#install-guest-tools-optional" title="Permanent link">&para;</a></h3>
+<p>Most virtualization software have Guest Tools that can be installed on the VM.  These tools enable various functionalities, eg: file sharing, clipboard sharing, printing and etc...</p>
+<p>Here are some Pros and Cons for installing Guest tools:</p>
+<h4 id="pros">Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h4>
+<p>It's easier to share files between host and guest.
+It's easier to copy and paste commands between the two.</p>
+<h4 id="cons">Cons<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h4>
+<p>Some malware can detect these tools and will change their behavior.
+Higher chance of malware escaping the isolated environment.</p>
+<h3 id="network-isolation">Network Isolation<a class="headerlink" href="#network-isolation" title="Permanent link">&para;</a></h3>
+<p>Be mindful of network isolation.  Lack of Network isolation is another way malware can escape the VM.  If you're reverse engineering a malware, make sure your VM is disconnected from the network or use FakeNet-NG or Host only network.</p>
+<h3 id="host-isolation">Host Isolation<a class="headerlink" href="#host-isolation" title="Permanent link">&para;</a></h3>
+<p>If you have resources to use a dedicated Host for this VM, then do it!!!</p>
+<h2 id="configuration-and-installation">Configuration and Installation<a class="headerlink" href="#configuration-and-installation" title="Permanent link">&para;</a></h2>
+<p>This section will discuss the configuration of Windows 10 VM and installing the toolkits.  The toolkits that are installed in this section are:</p>
+<ul>
+<li>FLARE</li>
+<li>COMMANDO</li>
+<li>SIFT</li>
+<li>KAPE</li>
+</ul>
+<h3 id="windows-10-vm-configuration">Windows 10 VM Configuration<a class="headerlink" href="#windows-10-vm-configuration" title="Permanent link">&para;</a></h3>
+<p>Now you have a Windows 10 VM.  In this step you will customize and configure the VM for your use.</p>
+<h4 id="perform-windows-update">Perform Windows Update<a class="headerlink" href="#perform-windows-update" title="Permanent link">&para;</a></h4>
+<p>Run windows update and install all available updates.</p>
+<h4 id="privacy-settings">Privacy Settings<a class="headerlink" href="#privacy-settings" title="Permanent link">&para;</a></h4>
+<p>Take a few minutes to review the privacy settings in the Windows 10 VM.  This can be accessed by going to Settings &gt; Privacy.</p>
+<hr />
+<p><a href="../../../../assets/images/2019-04-06-HowToCreateAVM/Image2.png"><img alt="post 1" src="../../../../assets/images/2019-04-06-HowToCreateAVM/Image2.png" /></a></p>
+<p><em>Windows 10 Privacy Settings</em></p>
+<hr />
+<h4 id="bashwindows-folder-sharing">Bash/Windows Folder Sharing<a class="headerlink" href="#bashwindows-folder-sharing" title="Permanent link">&para;</a></h4>
+<p>You're likely going to be switching between Linux bash and Windows.  You can save some time by setting up a couple of symbolic links in Linux.  Create two empty folders on your Windows Desktop.  You can call them "Malware" and  "Tools".  You can create the symbolic links in Linux as follow:</p>
+<div class="highlight"><pre><span></span><code>sudo ln -s /mnt/c/Users/User/Desktop/Malware ~/
+sudo ln -s /mnt/c/Users/User/Desktop/Tools ~/
+</code></pre></div>
+<p>You can use these folders to quickly transfer files and tools between the two OSes.  Beware that malware can escape from these folders!!!</p>
+<h4 id="install-flare">Install FLARE<a class="headerlink" href="#install-flare" title="Permanent link">&para;</a></h4>
+<p>To install FLARE you need to download the toolkit from <a href="https://github.com/fireeye/flare-vm">here</a>.  You will then need to extract the files and run .\install.ps1 in Powershell.</p>
+<p>You can view detailed instructions for installing FLARE <a href="https://www.fireeye.com/blog/threat-research/2018/11/flare-vm-update.html">here</a>.</p>
+<p>The setup will reboot the VM a few times to install the tools.  The full install may take a few hours depending on the VM performance.</p>
+<h4 id="install-commando">Install COMMANDO<a class="headerlink" href="#install-commando" title="Permanent link">&para;</a></h4>
+<p>COMMANDO install is similar to FLARE install.  First download the toolkit from <a href="https://github.com/fireeye/commando-vm">here</a>.  Once the download is complete, extract the files and run .\install.ps1 in Powershell.</p>
+<p>You can view detailed instructions for installing COMMANDO <a href="https://www.fireeye.com/blog/threat-research/2019/03/commando-vm-windows-offensive-distribution.html">here</a>.</p>
+<p>The setup will reboot the VM a few times to install the tools.  The full install may take a few hours depending on the VM performance.</p>
+<h4 id="install-sift">Install SIFT<a class="headerlink" href="#install-sift" title="Permanent link">&para;</a></h4>
+<p>SIFT is not fully supported in WSL.  However you can install it with the following commands:</p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/sans-dfir/sift-cli/releases/download/v1.7.1/sift-cli-linux
+wget https://github.com/sans-dfir/sift-cli/releases/download/v1.7.1/sift-cli-linux.sha256.asc
+
+gpg --keyserver pgp.mit.edu --recv-keys 22598A94
+gpg --verify sift-cli-linux.sha256.asc
+sha256sum -c sift-cli-linux.sha256.asc
+
+sudo mv sift-cli-linux /usr/local/bin/sift
+chmod <span class="m">755</span> /usr/local/bin/sift
+
+sudo sift install --mode<span class="o">=</span>packages-only
+</code></pre></div>
+<h4 id="install-olefile">Install olefile<a class="headerlink" href="#install-olefile" title="Permanent link">&para;</a></h4>
+<p>The Oledump tools require olefile.  Here are the steps to download and install olefile:</p>
+<ol>
+<li>Downloading the files from <a href="http://www.decalage.info/python/olefileio">here</a>.</li>
+<li>Extract the files and copy them to the Tools folder your desktop.</li>
+<li>Run the following command in bash from the Tools folder:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Sudo python setup.py install
+</code></pre></div>
+<h4 id="install-kape">Install KAPE<a class="headerlink" href="#install-kape" title="Permanent link">&para;</a></h4>
+<p>KAPE is a must have Forensic tool that's been developed by Eric Zimmerman.  You can Download it from <a href="https://learn.duffandphelps.com/kape">here</a>.</p>
+<p>You can read additional information about this tool <a href="https://binaryforay.blogspot.com/2019/02/introducing-kape.html">here</a>.</p>
+<h4 id="install-ms-office-optional">Install MS Office (Optional)<a class="headerlink" href="#install-ms-office-optional" title="Permanent link">&para;</a></h4>
+<p>This is an optional step.  If you do any MS Office Document malware reverse engineering, you may choice to install MS Office.  </p>
+<h3 id="cleanup-and-snapshot">Cleanup and Snapshot<a class="headerlink" href="#cleanup-and-snapshot" title="Permanent link">&para;</a></h3>
+<p>You're in the last mile, you can see the end and can't wait.  There is a few more things you need to do prior to using your VM.</p>
+<p>Here are some of the things you need to do:</p>
+<ul>
+<li>Delete the installation files from your VM.</li>
+<li>Empty your Recycle Bin</li>
+<li>Set your favorite background.</li>
+<li>Pin your favorite tools to the taskbar.</li>
+<li>Run Disk Clean up on the VM.</li>
+<li>Run Disk Defrag.</li>
+<li>Run sdelete -z c:</li>
+<li>Compact the VM Disk in your virtualization software.</li>
+<li>VERY IMPORTANT: Take a SNAPSHOT of your VM and give it a name and tag it with "- Clean - DATE".</li>
+</ul>
+<p>AND now lets take a few step back and see what we got!!!</p>
+<hr />
+<p><a href="../../../../assets/images/2019-04-06-HowToCreateAVM/Image0.png"><img alt="post 1" src="../../../../assets/images/2019-04-06-HowToCreateAVM/Image0.png" /></a></p>
+<p><em>Close enough!</em></p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This article provided some references and steps to create a Windows 10 VM for Malware Anlaysis, Offensive and Forensic tasks with FLARE, COMMANDO, SIFT and KAPE.</p>
+<p>I hope you enjoyed the article, if this article doesn't contain any of your favorite tools shoot me a message on twitter.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../post2/2019-04-22-HowToSignUpForHackTheBox/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                How to Sign Up for Hack The Box
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../../2018/post3/2018-12-16-HowToCreateAnAWSLambdaLayer/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                How to Create an AWS Lambda Layer
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

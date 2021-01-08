@@ -1,0 +1,841 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ever found that Tweeting is too much work and wanted to find a way to automate it? Well, I have good news for you. This article will walk you through how to make your first Twitter App with Python.  This is the first step in making your own AGI Twitter bot.">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../images/terminal-24.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>How to Create a Twitter App - Mo Sharif</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="Mo Sharif" class="md-header-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Mo Sharif
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              How to Create a Twitter App
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Mo Sharif" class="md-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    Mo Sharif
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Posts
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Posts" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Posts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+    
+    <label class="md-nav__link" for="nav-2-1">
+      2020
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2020" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        2020
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2020/kringlecon3/" class="md-nav__link">
+      KringleCon 3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+    
+    <label class="md-nav__link" for="nav-2-2">
+      2019
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2019" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        2019
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2019/kringlecon2/2020-01-13-KringleCon2/" class="md-nav__link">
+      KringleCon 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2019/post3/2019-06-16-HowToDeobfuscateJS/" class="md-nav__link">
+      How to Deobfuscate JavaScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2019/post2/2019-04-22-HowToSignUpForHackTheBox/" class="md-nav__link">
+      How to Sign Up for Hack The Box
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../2019/post1/2019-04-06-HowToCreateAVM/" class="md-nav__link">
+      How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-3">
+      2018
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2018" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        2018
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../post3/2018-12-16-HowToCreateAnAWSLambdaLayer/" class="md-nav__link">
+      How to Create an AWS Lambda Layer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../post2/2018-11-12-HowToCreateAnAWSLambdaFunction/" class="md-nav__link">
+      How to Create an AWS Lambda Function
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        How to Create a Twitter App
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      How to Create a Twitter App
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-apply-for-a-developer-account" class="md-nav__link">
+    Step 1 - Apply for a Developer Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-an-app-in-twitter" class="md-nav__link">
+    Step 2 - Create an App in Twitter﻿
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-keys-and-tokens-for-your-app" class="md-nav__link">
+    Step 3 - Create Keys and Tokens for your App
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-python-twitter-library" class="md-nav__link">
+    Step 4 - Install Python-Twitter Library
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-python-script-that-posts-to-twitter" class="md-nav__link">
+    Step 5 - Create a Python Script that Posts to Twitter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../books/" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../resources/" class="md-nav__link">
+      Resources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://www.patreon.com/mo4n6" class="md-nav__link">
+      Donate
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-apply-for-a-developer-account" class="md-nav__link">
+    Step 1 - Apply for a Developer Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-an-app-in-twitter" class="md-nav__link">
+    Step 2 - Create an App in Twitter﻿
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-keys-and-tokens-for-your-app" class="md-nav__link">
+    Step 3 - Create Keys and Tokens for your App
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-python-twitter-library" class="md-nav__link">
+    Step 4 - Install Python-Twitter Library
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-python-script-that-posts-to-twitter" class="md-nav__link">
+    Step 5 - Create a Python Script that Posts to Twitter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>How to Create a Twitter App</h1>
+                
+                <p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image1.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image1.png" /></a></p>
+<p><em>Apply for Access</em></p>
+<hr />
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This article will walk you through the steps to create a simple Twitter App using Python.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>Prior to creating a Twitter App, you will need the following:</p>
+<ul>
+<li>Python 3.6 or later installed</li>
+<li>A Twitter Account</li>
+</ul>
+<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
+<p>The process to create a Twitter App is broken down into the following steps:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 1 - Apply for a Developer Account<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 2 - Create an App in Twitter<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 3 - Create Keys and Tokens for your App<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 4 - Install Python-Twitter Library<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 5 - Create a Python Script that Posts to Twitter   </p>
+<h3 id="step-1-apply-for-a-developer-account">Step 1 - Apply for a Developer Account<a class="headerlink" href="#step-1-apply-for-a-developer-account" title="Permanent link">&para;</a></h3>
+<p>You need to apply for a developer account through Twitter.  To do this, log in to Twitter and visit <a href="https://developer.twitter.com/">https://developer.twitter.com/</a></p>
+<p>If this is your first time to log in to the above link, you would see something like this:</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image1.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image1.png" /></a></p>
+<p><em>Apply for Access</em></p>
+<hr />
+<p>Click on 'Apply for a Developer Account'.</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image2.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image2.png" /></a></p>
+<p><em>Application for Developer Account</em></p>
+<hr />
+<p>Review the instructions on the page.  Once ready to proceed, press on 'Continue'.  You will be asked some additional questions in regards to the developer account. You will need to complete 'Account Details' and 'Use case details'.</p>
+<p>You will see something like this once you have answered all the questions and agreed to the Terms of Service.</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image3.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image3.png" /></a></p>
+<p><em>Confirmation Screen</em></p>
+<hr />
+<h3 id="step-2-create-an-app-in-twitter">Step 2 - Create an App in Twitter﻿<a class="headerlink" href="#step-2-create-an-app-in-twitter" title="Permanent link">&para;</a></h3>
+<p>At this point, you've signed up for a Twitter Developer Account, confirmed you're email address and you're on the 'Get Started' Page.</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image4.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image4.png" /></a></p>
+<p><em>'Get Started' Page</em></p>
+<hr />
+<p>Click on 'Create an App' under 'Get started'.  You should see something like this:</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image5.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image5.png" /></a></p>
+<p><em>Create an app</em></p>
+<hr />
+<p>Click on ' Create an app' again.  You will be asked to fill out some information in regards to your app (similar to filling out the developer questionnaire).  Here are some of the details you will have to fill out:</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image6.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image6.png" /></a></p>
+<p><em>App questionnaire</em></p>
+<hr />
+<p>Complete the questionnaire to create your app.</p>
+<h3 id="step-3-create-keys-and-tokens-for-your-app">Step 3 - Create Keys and Tokens for your App<a class="headerlink" href="#step-3-create-keys-and-tokens-for-your-app" title="Permanent link">&para;</a></h3>
+<p>Now that you've created your Twitter App.  You will see something like this:</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image7.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image7.png" /></a></p>
+<p><em>App details</em></p>
+<hr />
+<p>Click on 'Keys and tokens'.  The Consumer API keys will be listed.  You will need also need to 'Create' the 'Access token &amp; access token secret' for your App.</p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image8.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image8.png" /></a></p>
+<p><em>App Keys and Tokens</em></p>
+<hr />
+<h3 id="step-4-install-python-twitter-library">Step 4 - Install Python-Twitter Library<a class="headerlink" href="#step-4-install-python-twitter-library" title="Permanent link">&para;</a></h3>
+<p>This step will walk you through installing the Python-Twitter Library.  You will need to download the library from github.com.</p>
+<p>Python-Twitter Library Link: <a href="https://github.com/bear/python-twitter">https://github.com/bear/python-twitter</a></p>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image9.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image9.png" /></a></p>
+<p><em>Screenshot of Python-Twitter github library</em></p>
+<hr />
+<p>Download and extract the library.  Run the following command to install the library:
+<div class="highlight"><pre><span></span><code>python setup.py install﻿
+</code></pre></div>
+The first time I tired to install the library, I got the following error message:</p>
+<blockquote>
+<p>error: The 'requests' distribution was not found and is required by python-twitter</p>
+</blockquote>
+<hr />
+<p><a href="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image11.png"><img alt="post" src="../../../../assets/images/2018-11-03-HowToCreateATwitterApp/image11.png" /></a></p>
+<p><em>Screenshot of the installation error</em></p>
+<hr />
+<p>Running the install command again resolved the issue.</p>
+<h3 id="step-5-create-a-python-script-that-posts-to-twitter">Step 5 - Create a Python Script that Posts to Twitter<a class="headerlink" href="#step-5-create-a-python-script-that-posts-to-twitter" title="Permanent link">&para;</a></h3>
+<p>I know it's been fun, however we're almost at the end.  Now time to write a simple Python program that makes a post to Twitter.</p>
+<p>Make sure to import twitter at top of your program:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">twitter</span>
+</code></pre></div>
+<p>Authenticate to Twitter by using your token, token secret, consumer_key and consumer_secret (from Step 3).  </p>
+<div class="highlight"><pre><span></span><code><span class="n">api</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">Api</span><span class="p">(</span><span class="n">consumer_key</span><span class="o">=</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="o">=</span><span class="n">consumer_secret</span><span class="p">,</span>
+<span class="n">access_token_key</span><span class="o">=</span><span class="n">token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="o">=</span><span class="n">token_secret</span><span class="p">)</span>
+</code></pre></div>
+<p>Update your status with the following syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="n">status</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">PostUpdate</span><span class="p">(</span><span class="s2">&quot;Hello World #HelloWorld #Python #TwitterApp&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>Voila!! You've just sent a tweet!! Go check you're Twitter!!  You've made your first Twitter app with Python!!</p>
+<p>This article provided the minimum steps required to create a Twitter App.  I know what you're thinking, this is a good start, but running a Python script to send a tweet still sounds like too much work.  In a future post I will show you how to use AWS lambda to make this more efficient and self reliant.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../post2/2018-11-12-HowToCreateAnAWSLambdaFunction/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                How to Create an AWS Lambda Function
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../books/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Books
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
