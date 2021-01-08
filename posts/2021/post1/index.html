@@ -314,6 +314,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -847,6 +854,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -876,7 +890,7 @@
 <p><a href="../../../images/2020/post1/img2.png"><img alt="post" src="../../../images/2020/post1/img2.png" /></a></p>
 <hr />
 <h2 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">&para;</a></h2>
-<p>I am not going to go into the details of installing and configuring MkDocs. The MkDocs documentation does a good job of this. Here is <a href="https://www.mkdocs.org/">Setup MkDocs</a>.</p>
+<p>I am not going to go into the details of installing and configuring MkDocs. The MkDocs documentation does a good job of this. Here is the <a href="https://www.mkdocs.org/">MkDocs Documentation</a>.</p>
 <p>After you install and configure MkDocs. Create the <code>mkdocs.yml</code> for your blog. This would include things like the theme and menus. Here is a copy of this website's <a href="https://github.com/Mo4n6/website/blob/main/mkdocs.yml">mkdocs.yml</a> for reference.</p>
 <p>Make a copy and update the blog from Jekyll to MkDocs folder. I had to make some minor changes to the Jekyll posts. For example, I had to remove the Jekyll headers in the blog posts and verify all the image links worked correctly.</p>
 <p>At this point, you have a working MkDocs blog, and now you're ready to deploy it to GitHub Pages.</p>
@@ -924,8 +938,9 @@ mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 <p>Now, you've deployed your blog to a new branch on GitHub. You're ready to update the GitHub Pages setting to start serving from this new blog.</p>
 <hr />
 <h2 id="custom-domains">Custom Domains<a class="headerlink" href="#custom-domains" title="Permanent link">&para;</a></h2>
-<p>As per <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#deploying-your-docs">docs</a>,in addition to the steps documented by GitHub, you need to take one additional step so that MkDocs will work with your custom domain. You need to add a CNAME file to the root of your docs_dir. In my case, I had to run the following command in the root <code>website</code> folder:</p>
-<div class="highlight"><pre><span></span><code>echo &quot;www.sharif.org&quot; &gt; CNAME
+<p>As per <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#deploying-your-docs">docs</a>, in addition to the steps documented by GitHub, you need to take one additional step so that MkDocs will work with your custom domain. You need to add a CNAME file to the root of your docs_dir. In my case, I had to run the following command in the root <code>website</code> folder:</p>
+<div class="highlight"><pre><span></span><code>cd docs
+echo &quot;www.sharif.org&quot; &gt; CNAME
 </code></pre></div>
 <hr />
 <p><a href="../../../images/2020/post1/img4.png"><img alt="post" src="../../../images/2020/post1/img4.png" /></a></p>
@@ -936,6 +951,9 @@ mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 <hr />
 <p><a href="../../../images/2020/post1/img3.png"><img alt="post" src="../../../images/2020/post1/img3.png" /></a></p>
 <hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The migration went as expected. In future I may look into adding Google Analytic to the Blog. In this project I learned about MkDocs and GitHub pages. I am grateful for Markdown as it made an easy work of migrating the posts from Jekyll to MkDocs.</p>
+<p>Overall, this was a fun project that I enjoyed doing. I look forward to using the new blog.</p>
 <hr />
                 
               
