@@ -879,8 +879,8 @@
 
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This article will describe the steps to migrate a blog from Jekyll to MkDocs on GitHub Pages.</p>
-<p>For a while, I've been looking for ways to better organize my blog. Recently, I came across MkDocs (Material Theme) and it seems to offer more features to better organize a blog. I know Jekyll has many different themes, and there may be themes that are much better than MkDocs (Material Theme).</p>
-<p>My objective for this project was to spend the minimum amount of time to improve the organization and clarity of my blog. MkDocs (with Material Theme), seems to offer these out of the box. If you know of other frameworks/themes that better meet this objective, please let me know.</p>
+<p>For a while, I've been looking for better ways to organize my blog. Recently, I came across MkDocs (Material Theme), and it seemed promising. Jekyll has many different themes, and there may be a theme out there that works much better than MkDocs, but I haven't find it yet. I know it's out there!</p>
+<p>My objective for this project was to organize my blog better while spending the least amount of time. MkDocs (with Material Theme) seems to offer these out of the box. If you know of other frameworks/themes that better meet this objective, please let me know.</p>
 <p>Here is how the old blog looked:</p>
 <hr />
 <p><a href="../../../images/2020/post1/img1.png"><img alt="post" src="../../../images/2020/post1/img1.png" /></a></p>
@@ -890,26 +890,25 @@
 <p><a href="../../../images/2020/post1/img2.png"><img alt="post" src="../../../images/2020/post1/img2.png" /></a></p>
 <hr />
 <h2 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">&para;</a></h2>
-<p>I am not going to go into the details of installing and configuring MkDocs. The MkDocs documentation does a good job of this. Here is the <a href="https://www.mkdocs.org/">MkDocs Documentation</a>.</p>
-<p>After you install and configure MkDocs. Create the <code>mkdocs.yml</code> for your blog. This would include things like the theme and menus. Here is a copy of this website's <a href="https://github.com/Mo4n6/website/blob/main/mkdocs.yml">mkdocs.yml</a> for reference.</p>
+<p>I am not going to go into the details of installing and configuring MkDocs. The <a href="https://www.mkdocs.org/">MkDocs Documentation</a> is good at providing this information. Please refer to this documentation for installation and configuration.</p>
+<p>After you install and configure MkDocs. Create the <code>mkdocs.yml</code> for your blog. This file includes things like the theme and menus. Here is a copy of this website's <a href="https://github.com/Mo4n6/website/blob/main/mkdocs.yml">mkdocs.yml</a> for reference.</p>
 <p>Make a copy and update the blog from Jekyll to MkDocs folder. I had to make some minor changes to the Jekyll posts. For example, I had to remove the Jekyll headers in the blog posts and verify all the image links work correctly.</p>
 <p>At this point, you have a working MkDocs blog, and now you're ready to deploy it to GitHub Pages.</p>
 <hr />
 <h2 id="github-pages-deployment">GitHub Pages Deployment<a class="headerlink" href="#github-pages-deployment" title="Permanent link">&para;</a></h2>
-<p>To deploy your blog with MkDocs on GitHub, you need two folders. You need a project folder (which includes the actual blog), and a folder for the GitHub repository.</p>
-<p>Read <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">this</a> to better understand how the deployment for MkDocs works. In summary, this is how the two folders may look like:</p>
+<p>To deploy your blog with MkDocs on GitHub, you need two folders. You need a project folder (which includes the actual blog) and a folder for the GitHub repository.</p>
+<p>To better understand how MkDocs deployment works, read <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">this</a>. In summary, this is how the two folders may look like:</p>
 <div class="highlight"><pre><span></span><code>my-project/
     mkdocs.yml
     docs/
 orgname.github.io/
 </code></pre></div>
 <p>The <code>my-project/docs/</code> contain the markdown code for the blog. The folder <code>orgname.github.io</code> is your GitHub Pages repository. Where <code>orgname</code> is the username is your username (or organization name) in GitHub.</p>
-<p>The statically generated website will be deployed to GitHub with the following code:</p>
+<p>The statically generated website is deployed to GitHub with the following code:</p>
 <div class="highlight"><pre><span></span><code>cd ../orgname.github.io/
 mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 </code></pre></div>
-<p>I wanted to deploy the new website in a way that I could revert to the old blog. To do this, I decided to create a new GitHub branch, <code>main</code>, for my GitHub pages.</p>
-<p>This is how I did this:</p>
+<p>I wanted to deploy the new website in a way that I could revert to the old blog. To do this, I decided to create a new GitHub branch, <code>main</code>, for my GitHub pages. To do this, I had to run the following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="n">mkdir</span> <span class="n">Mo4n6</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
 <span class="n">git</span> <span class="n">init</span>
 <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Mo4n6</span><span class="o">/</span><span class="n">Mo4n6</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
@@ -926,9 +925,9 @@ mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 </code></pre></div>
 <p>where,</p>
 <ul>
-<li><code>website</code> is your blog folder (with the Markdown code).</li>
-<li><code>main</code> is the name of the branch you want to push to.</li>
-<li><code>orgname</code> is the username is your username (or organization name).</li>
+<li><code>website</code> - is your blog folder (with the Markdown code).</li>
+<li><code>main</code> - is the name of the branch you want to push to.</li>
+<li><code>orgname</code> - is the username is your username (or organization name).</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -946,13 +945,13 @@ echo &quot;www.sharif.org&quot; &gt; CNAME
 <p><a href="../../../images/2020/post1/img4.png"><img alt="post" src="../../../images/2020/post1/img4.png" /></a></p>
 <hr />
 <h2 id="the-switch-over">The Switch Over<a class="headerlink" href="#the-switch-over" title="Permanent link">&para;</a></h2>
-<p>In this section, we'll talk about how to switch GitHub Pages over from the old branch to the new branch.</p>
-<p>To do this, update the branch under "Settings&gt;Options&gt;GitHub Pages" to point to the new branch. In my case, I had to open the repository <code>Mo4n6.github.io</code> and go to settings. I had to update the "GitHub Pages" which is found under the Options tab of settings. Here is the screenshot:</p>
+<p>This section will go over switching GitHub Pages from the old branch to the new.</p>
+<p>To do this, update the branch under "Settings&gt;Options&gt;GitHub Pages" to point to the new branch. In my case, I had to open the repository <code>Mo4n6.github.io</code> and go to Settings&gt;Options. I had to select the "main" branch under "GitHub Pages".  Here is a screenshot:</p>
 <hr />
 <p><a href="../../../images/2020/post1/img3.png"><img alt="post" src="../../../images/2020/post1/img3.png" /></a></p>
 <hr />
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>The migration went as expected. In the future, I may look into adding Google Analytics to the Blog. In this project, I learned about MkDocs and GitHub pages. I am grateful for Markdown as it made easy work migrating the posts from Jekyll to MkDocs.</p>
+<p>The migration went as expected. In the future, I may look into adding Google Analytics to the blog. I learned about MkDocs and GitHub pages. I am grateful for Markdown as it made easy work migrating the posts from Jekyll to MkDocs.</p>
 <p>Overall, this was a fun project that I enjoyed doing. I look forward to using the new blog.</p>
 <hr />
                 
