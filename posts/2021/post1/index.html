@@ -908,7 +908,7 @@ orgname.github.io/
 <div class="highlight"><pre><span></span><code>cd ../orgname.github.io/
 mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 </code></pre></div>
-<p>I wanted to deploy the new website in a way that I could revert to the old blog. To do this, I decided to create a new GitHub branch, <code>main</code>, for my GitHub pages. To do this, I had to run the following commands:</p>
+<p>I wanted to deploy the new website in a way that I could revert to the old blog. To do this, I decided to create a new branch (<code>main</code>) for my existing GitHub Pages repository. I had to run the following commands to complete this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">mkdir</span> <span class="n">Mo4n6</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
 <span class="n">git</span> <span class="n">init</span>
 <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Mo4n6</span><span class="o">/</span><span class="n">Mo4n6</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
@@ -934,7 +934,7 @@ mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 <p>From MkDocs:</p>
 <p>You should never edit files in your pages repository (eg. Mo4n6.github.io folder) by hand if you're using the gh-deploy command because you will lose your work the next time you run the command.</p>
 </div>
-<p>Now, you've deployed your blog to a new branch on GitHub. You're ready to update the GitHub Pages setting to start serving from this new blog.</p>
+<p>Now, you've deployed your blog to a new branch on GitHub. You're ready to update the GitHub Pages setting to serve the new blog.</p>
 <hr />
 <h2 id="custom-domains">Custom Domains<a class="headerlink" href="#custom-domains" title="Permanent link">&para;</a></h2>
 <p>As per <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#deploying-your-docs">docs</a>, in addition to the steps documented by GitHub, you need to take one additional step so that MkDocs will work with your custom domain. You need to add a CNAME file to the root of your docs_dir. In my case, I had to run the following command in the root <code>website</code> folder:</p>
@@ -951,7 +951,7 @@ echo &quot;www.sharif.org&quot; &gt; CNAME
 <p><a href="../../../images/2020/post1/img3.png"><img alt="post" src="../../../images/2020/post1/img3.png" /></a></p>
 <hr />
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>The migration went as expected. In the future, I may look into adding Google Analytics to the blog. I learned about MkDocs and GitHub pages. I am grateful for Markdown as it made easy work migrating the posts from Jekyll to MkDocs.</p>
+<p>The migration went as expected. In the future, I may look at adding Google Analytics to the blog. I learned about MkDocs and GitHub pages. I am grateful for markdown as it made easy work migrating the posts from Jekyll to MkDocs.</p>
 <p>Overall, this was a fun project that I enjoyed doing. I look forward to using the new blog.</p>
 <hr />
                 
