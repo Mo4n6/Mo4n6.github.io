@@ -1,0 +1,981 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../images/logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>11a) Naughty/Nice List with Blockchain Investigation Part 1 - Kringlecon 3: French Hens</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objective-11a-naughtynice-list-with-blockchain-investigation-part-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Kringlecon 3: French Hens" class="md-header-nav__button md-logo" aria-label="Kringlecon 3: French Hens">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Kringlecon 3: French Hens
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              11a) Naughty/Nice List with Blockchain Investigation Part 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Kringlecon 3: French Hens" class="md-nav__button md-logo" aria-label="Kringlecon 3: French Hens">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Kringlecon 3: French Hens
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://www.sharif.org" class="md-nav__link">
+      Back to Sharif.org
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective3/" class="md-nav__link">
+      3) Point-of-Sale Password Recovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective5/" class="md-nav__link">
+      5) Open HID Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective6/" class="md-nav__link">
+      6) Splunk Challenge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective7/" class="md-nav__link">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective9/" class="md-nav__link">
+      9) ARP Shenanigans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11a) Naughty/Nice List with Blockchain Investigation Part 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through" class="md-nav__link">
+    Walk-through
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11b/" class="md-nav__link">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/linux/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/kiosk/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/tmux/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/modem/" class="md-nav__link">
+      33.6kbps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/unprep/" class="md-nav__link">
+      Speaker UNPrep
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/canbus/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/redis/" class="md-nav__link">
+      Redis Bug hunt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/scapy/" class="md-nav__link">
+      Scapy Prepper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/snowball/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/elfcode/" class="md-nav__link">
+      Programming Concepts (The ELF C0DE)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/sort/" class="md-nav__link">
+      SORT-O-MATIC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/greet/" class="md-nav__link">
+      Greeting Cards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/items/" class="md-nav__link">
+      Items
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/hints/" class="md-nav__link">
+      Hints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/map/" class="md-nav__link">
+      Map/Directory
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/narrative/" class="md-nav__link">
+      Narrative
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/eastereggs/" class="md-nav__link">
+      Easter eggs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/artmusic/" class="md-nav__link">
+      Art/Music
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/talks/" class="md-nav__link">
+      Talks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/booths/" class="md-nav__link">
+      Booths
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/credits/" class="md-nav__link">
+      Credits
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/answers/" class="md-nav__link">
+      Answers
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through" class="md-nav__link">
+    Walk-through
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="objective-11a-naughtynice-list-with-blockchain-investigation-part-1">Objective 11a - Naughty/Nice List with Blockchain Investigation Part 1<a class="headerlink" href="#objective-11a-naughtynice-list-with-blockchain-investigation-part-1" title="Permanent link">&para;</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h2>
+<p><a href="../../images/obj/objective11a/img1.png"><img alt="Objective 11" src="../../images/obj/objective11a/img1.png" /></a></p>
+<hr />
+<p>Link: <a href="https://download.holidayhackchallenge.com/2020/OfficialNaughtyNiceBlockchainEducationPack.zip">tools</a></p>
+<hr />
+<p>Tinsel Upatree tells you the following:</p>
+<blockquote>
+<p>Howdy Santa! Just guarding the Naughty/Nice list on your desk.
+  Santa, I don't know if you've heard, but something is very, very wrong...
+  We tabulated the latest score of the Naughty/Nice Blockchain.
+  Jack Frost is the nicest being in the world! Jack Frost!?!
+  As you know, we only really start checking the Naughty/Nice totals as we get closer to the holidays.
+  Out of nowhere, Jack Frost has this crazy score... positive 4,294,935,958 nice points!
+  No one has EVER gotten a score that high! No one knows how it happened.
+  Most of us recall Jack having a NEGATIVE score only a few days ago...
+  Worse still, his huge positive score seems to have happened way back in March.
+  Our first thought was that he somehow changed the blockchain - but, as you know, that isn't possible.
+  We ran a validation of the blockchain and it all checks out.
+  Even the smallest change to any block should make it invalid.
+  Blockchains are huge, so we cut a one minute chunk from when Jack's big score registered back in March.
+  You can get a slice of the Naughty/Nice blockchain on your desk.
+  You can get some tools to help you here.
+  Tangle Coalbox, in the Speaker UNPreparedness room. has been talking with attendees about the issue.</p>
+</blockquote>
+<p>For this objective, you need to be Santa. Go to Santa's office and click on the <a href="https://download.holidayhackchallenge.com/2020/blockchain.dat">Naughty/Nice List</a> on the table next to Tinsel Upatree. This will download the blockchain that you need for this objective.</p>
+<hr />
+<p><a href="../../images/obj/objective11a/img2.png"><img alt="Objective 11" src="../../images/obj/objective11a/img2.png" /></a></p>
+<hr />
+<h2 id="walk-through">Walk-through<a class="headerlink" href="#walk-through" title="Permanent link">&para;</a></h2>
+<p>The terminal challenge for this objective is the "Snowball fight" that is offered by Tangle Coalbox in the UNPreparedness room.</p>
+<p>Solving this terminal challenge provide additional hints for this objective. To view the hints or the walk-through for this terminal challenge, use the menu on the left.</p>
+<p>To start this objective go to the Santa's Office and Download the <a href="https://download.holidayhackchallenge.com/2020/blockchain.dat">blockchain data</a>, <a href="https://download.holidayhackchallenge.com/2020/OfficialNaughtyNiceBlockchainEducationPack.zip">OfficialNaughtyNiceBlockchainEducationPack.zip</a> and <a href="https://github.com/tliston/mt19937/blob/main/mt19937.py">mt19937.py</a>.</p>
+<p>There is a <a href="https://www.youtube.com/watch?v=Jo5Nlbqd-Vg">talk</a> that may be helpful for this challenge.</p>
+<p>To solve this challenge you need to read the blocks in <code>blockchain.dat</code> and extract the Nonces from each block. You will then need to feed the first 624 Nonces to the Mersenne Twister predictor (ex. mt19937.py). This will allow you to predict nonces. You then need to step through the Nonces until you reach the 130000<sup>th</sup> Nonce.</p>
+<p>To do this, extract OfficialNaughtyNiceBlockchainEducationPack.zip. Add <code>mt19937.py</code> to the <code>naughty_nice.py</code> script.</p>
+<p>Add the following functions to <code>naughty_nice.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">SplitNonces</span><span class="p">(</span><span class="n">hexNonce</span><span class="p">):</span>
+     <span class="n">LSB</span> <span class="o">=</span> <span class="n">hexNonce</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>
+     <span class="n">MSB</span> <span class="o">=</span> <span class="n">hexNonce</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span>
+     <span class="k">return</span> <span class="n">MSB</span><span class="p">,</span><span class="n">LSB</span>
+
+<span class="k">def</span> <span class="nf">MergeNonces</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">a</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ToDec</span><span class="p">(</span><span class="n">hexNonce</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">hexNonce</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ToHex</span><span class="p">(</span><span class="n">dec</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">hex</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>Update the main of <code>naughty_nice.py</code> as follow:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;official_public.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">official_public_key</span> <span class="o">=</span> <span class="n">RSA</span><span class="o">.</span><span class="n">importKey</span><span class="p">(</span><span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="n">c2</span> <span class="o">=</span> <span class="n">Chain</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;blockchain.dat&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C2: Block chain verify: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">verify_chain</span><span class="p">(</span><span class="n">official_public_key</span><span class="p">)))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">))</span>
+
+    <span class="c1"># create our own version of an MT19937 PRNG.</span>
+    <span class="n">myprng</span> <span class="o">=</span> <span class="n">mt19937</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="c1">#feed 624 Nonces to the Mersenne Twister predictor</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">mt19937</span><span class="o">.</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">hexNonce</span><span class="o">=</span><span class="nb">hex</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">nonce</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">MSB</span><span class="p">,</span><span class="n">LSB</span> <span class="o">=</span> <span class="n">SplitNonces</span><span class="p">(</span><span class="n">hexNonce</span><span class="p">)</span>
+        <span class="n">myprng</span><span class="o">.</span><span class="n">MT</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">untemper</span><span class="p">(</span><span class="n">ToDec</span><span class="p">(</span><span class="n">LSB</span><span class="p">))</span>
+        <span class="n">myprng</span><span class="o">.</span><span class="n">MT</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">untemper</span><span class="p">(</span><span class="n">ToDec</span><span class="p">(</span><span class="n">MSB</span><span class="p">))</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">#generate the Nonces for the existing blocks</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">)):</span>
+        <span class="n">hexNonce</span><span class="o">=</span><span class="nb">hex</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nonce</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>     
+        <span class="n">MSB</span><span class="p">,</span><span class="n">LSB</span> <span class="o">=</span> <span class="n">SplitNonces</span><span class="p">(</span><span class="n">hexNonce</span><span class="p">)</span>
+        <span class="n">myprng</span><span class="o">.</span><span class="n">extract_number</span><span class="p">()</span>
+        <span class="n">myprng</span><span class="o">.</span><span class="n">extract_number</span><span class="p">()</span>
+        <span class="c1">#print(c2.blocks[i].nonce, hexNonce,MSB,LSB, ToDec(MSB), ToDec(LSB), &quot;pred:&quot;,myprng.extract_number(),myprng.extract_number())</span>
+
+    <span class="c1">#predict the next 8 Nonces</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">129997</span><span class="p">,</span><span class="mi">130001</span><span class="p">):</span>
+        <span class="n">PredictNonce</span><span class="o">=</span> <span class="n">MergeNonces</span><span class="p">(</span><span class="n">ToHex</span><span class="p">(</span><span class="n">myprng</span><span class="o">.</span><span class="n">extract_number</span><span class="p">()),</span><span class="n">ToHex</span><span class="p">(</span><span class="n">myprng</span><span class="o">.</span><span class="n">extract_number</span><span class="p">()))</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Predicted Nonce:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">PredictNonce</span><span class="p">)</span>
+</code></pre></div>
+<p>Running the updated <code>naughty_nice.py</code> gives you the following results:</p>
+<hr />
+<p><a href="../../images/obj/objective11a/img3.png"><img alt="Objective 10" src="../../images/obj/objective11a/img3.png" /></a></p>
+<hr />
+<p>The updated <code>naughty_nice.py</code> code can be downloaded <a href="https://github.com/Mo4n6/KringleCon3/blob/main/Objective%2011a/naughty_nice.py">here</a>.</p>
+<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
+<p>The 130000 Nonce is</p>
+<blockquote>
+<p>57066318f32f729d</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective10/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                10) Defeat Fingerprint Sensor
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../objective11b/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                11b) Naughty/Nice List with Blockchain Investigation Part 2
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

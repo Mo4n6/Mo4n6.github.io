@@ -1,0 +1,1119 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../images/logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>6) Splunk Challenge - Kringlecon 3: French Hens</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objective-6-splunk-challenge" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Kringlecon 3: French Hens" class="md-header-nav__button md-logo" aria-label="Kringlecon 3: French Hens">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Kringlecon 3: French Hens
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              6) Splunk Challenge
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Kringlecon 3: French Hens" class="md-nav__button md-logo" aria-label="Kringlecon 3: French Hens">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Kringlecon 3: French Hens
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://www.sharif.org" class="md-nav__link">
+      Back to Sharif.org
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective3/" class="md-nav__link">
+      3) Point-of-Sale Password Recovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective5/" class="md-nav__link">
+      5) Open HID Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        6) Splunk Challenge
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      6) Splunk Challenge
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through" class="md-nav__link">
+    Walk-through
+  </a>
+  
+    <nav class="md-nav" aria-label="Walk-through">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-question-1" class="md-nav__link">
+    Training Question 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-2" class="md-nav__link">
+    Training Question 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-3" class="md-nav__link">
+    Training Question 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-4" class="md-nav__link">
+    Training Question 4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-5" class="md-nav__link">
+    Training Question 5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-6" class="md-nav__link">
+    Training Question 6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-7" class="md-nav__link">
+    Training Question 7
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-question" class="md-nav__link">
+    Challenge Question
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective7/" class="md-nav__link">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective9/" class="md-nav__link">
+      9) ARP Shenanigans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11a/" class="md-nav__link">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11b/" class="md-nav__link">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/linux/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/kiosk/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/tmux/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/modem/" class="md-nav__link">
+      33.6kbps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/unprep/" class="md-nav__link">
+      Speaker UNPrep
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/canbus/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/redis/" class="md-nav__link">
+      Redis Bug hunt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/scapy/" class="md-nav__link">
+      Scapy Prepper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/snowball/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/elfcode/" class="md-nav__link">
+      Programming Concepts (The ELF C0DE)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/sort/" class="md-nav__link">
+      SORT-O-MATIC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/greet/" class="md-nav__link">
+      Greeting Cards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/items/" class="md-nav__link">
+      Items
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/hints/" class="md-nav__link">
+      Hints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/map/" class="md-nav__link">
+      Map/Directory
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/narrative/" class="md-nav__link">
+      Narrative
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/eastereggs/" class="md-nav__link">
+      Easter eggs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/artmusic/" class="md-nav__link">
+      Art/Music
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/talks/" class="md-nav__link">
+      Talks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/booths/" class="md-nav__link">
+      Booths
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/credits/" class="md-nav__link">
+      Credits
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/answers/" class="md-nav__link">
+      Answers
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through" class="md-nav__link">
+    Walk-through
+  </a>
+  
+    <nav class="md-nav" aria-label="Walk-through">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-question-1" class="md-nav__link">
+    Training Question 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-2" class="md-nav__link">
+    Training Question 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-3" class="md-nav__link">
+    Training Question 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-4" class="md-nav__link">
+    Training Question 4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-5" class="md-nav__link">
+    Training Question 5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-6" class="md-nav__link">
+    Training Question 6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-question-7" class="md-nav__link">
+    Training Question 7
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-question" class="md-nav__link">
+    Challenge Question
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="objective-6-splunk-challenge">Objective 6 - Splunk Challenge<a class="headerlink" href="#objective-6-splunk-challenge" title="Permanent link">&para;</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h2>
+<p><a href="../../images/obj/objective6/img1.png"><img alt="Objective 6" src="../../images/obj/objective6/img1.png" /></a></p>
+<hr />
+<p>The Splunk Challenge is offered by Angel Candysalt in the "Great Room". You have to be in Santa's Body to be able to do this challenge. If you're not sure how to enter Santa's Body, refer to Objective 5 write-up.</p>
+<hr />
+<p><a href="../../images/obj/objective6/img2.png"><img alt="Objective 6" src="../../images/obj/objective6/img2.png" /></a></p>
+<hr />
+<h2 id="walk-through">Walk-through<a class="headerlink" href="#walk-through" title="Permanent link">&para;</a></h2>
+<p>To start this objective go to the "Great Room" as Santa. Refer to Objective 5 walk-through if you're not sure how to enter Santa's Body. Click on the Splunk PC to start this objective. This redirects you to the <a href="https://splunk.kringlecastle.com/en-US/app/SA-kringleconsoc/kringleconsoc">splunk website</a> for this challenge.</p>
+<p>Instead of a hint, this objective contains training questions. The training questions, train users to be able to answer the "Challenge Question".</p>
+<p>There is a <a href="https://www.youtube.com/channel/UCNiR-C_VXv_TCFgww5Vczag">talk</a> available for this objective.</p>
+<h3 id="training-question-1">Training Question 1<a class="headerlink" href="#training-question-1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>1) How many distinct MITRE ATT&amp;CK techniques did Alice emulate?       </p>
+</blockquote>
+<p>You can find all the attack types following search:</p>
+<div class="highlight"><pre><span></span><code>  index=T*| top limit=200 index | fields index
+</code></pre></div>
+<p>Filter the above and remove the duplicates and sub attacks. There are 13 distinct attacks.</p>
+<p>Alice Bluebird shares this command with us that also gives the solution:
+<div class="highlight"><pre><span></span><code>    | tstats count where index=* by index
+    | search index=T*-win OR T*-main
+    | rex field=index &quot;(?&lt;technique&gt;t\d+)[\.\-].0*&quot;
+    | stats dc(technique)
+</code></pre></div></p>
+<blockquote>
+<p>Answer: 13</p>
+</blockquote>
+<hr />
+<h3 id="training-question-2">Training Question 2<a class="headerlink" href="#training-question-2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>2) What are the names of the two indexes that contain the results of emulating Enterprise ATT&amp;CK technique 1059.003? (Put them in alphabetical order and separate them with a space)      </p>
+</blockquote>
+<p>Search for <code>index=t1059.003*</code>.
+Click on the index field in the left toolbar of the results. Two values are displayed, <code>t1059.003-main</code> and <code>t1059.003-win</code>.</p>
+<blockquote>
+<p>Answer: t1059.003-main t1059.003-win</p>
+</blockquote>
+<hr />
+<h3 id="training-question-3">Training Question 3<a class="headerlink" href="#training-question-3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>3) One technique that Santa had us simulate deals with 'system information discovery'. What is the full name of the registry key that is queried to determine the MachineGuid?            </p>
+</blockquote>
+<p>Alice Bluebird provides the link for <a href="https://github.com/redcanaryco/atomic-red-team">Atomic Red Team</a> GitHub repo. Search this repo for "MachineGuid". The registry key is shown in the results.</p>
+<blockquote>
+<p>Answer: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography</p>
+</blockquote>
+<hr />
+<h3 id="training-question-4">Training Question 4<a class="headerlink" href="#training-question-4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>4) According to events recorded by the Splunk Attack Range, when was the first OSTAP related atomic test executed? (Please provide the alphanumeric UTC timestamp.)               </p>
+</blockquote>
+<p>Search for <code>index=attack field5="ostap*"</code> and look at the earliest attack timestamp in UTC.</p>
+<blockquote>
+<p>Answer: 2020-11-30T17:44:15Z</p>
+</blockquote>
+<hr />
+<h3 id="training-question-5">Training Question 5<a class="headerlink" href="#training-question-5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>5) One Atomic Red Team test executed by the Attack Range makes use of an open source package authored by frgnca on GitHub. According to Sysmon (Event Code 1) events in Splunk, what was the ProcessId associated with the first use of this component?                   </p>
+</blockquote>
+<p>Review the frgnca GitHub repo. The only repo that is related to windows is a repo called <code>AudioDeviceCmdlets</code>.</p>
+<p>Search for <code>index=* CommandLine="*audio*"</code> to find the ProcessId.</p>
+<blockquote>
+<p>Answer: 3648</p>
+</blockquote>
+<hr />
+<h3 id="training-question-6">Training Question 6<a class="headerlink" href="#training-question-6" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>6) Alice ran a simulation of an attacker abusing Windows registry run keys. This technique leveraged a multi-line batch file that was also used by a few other techniques. What is the final command of this multi-line batch file used as part of this simulation?                       </p>
+</blockquote>
+<p>Search for <code>index=* CommandLine="*.bat*"</code>. Add the field CommandLine to the result table. Search and review the .bat files in the results. You will see the following .bat file in the results:</p>
+<blockquote>
+<p><a href="https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/ARTifacts/Misc/Discovery.bat">https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/ARTifacts/Misc/Discovery.bat</a></p>
+</blockquote>
+<p>Viewing this batch file shows the last line is <code>quser</code>.</p>
+<blockquote>
+<p>Answer: quser</p>
+</blockquote>
+<hr />
+<h3 id="training-question-7">Training Question 7<a class="headerlink" href="#training-question-7" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>7) According to x509 certificate events captured by Zeek (formerly Bro), what is the serial number of the TLS certificate assigned to the Windows domain controller in the attack range?                          </p>
+</blockquote>
+<p>For this question we get the following hint:</p>
+<p><a href="../../images/obj/objective6/img4.png"><img alt="Objective 6" src="../../images/obj/objective6/img4.png" /></a></p>
+<p>Search for <code>index=* sourcetype=bro* sourcetype="bro:x509:json"</code>. Reviewing the results you find the serial number for win-dc-748.attackrange.local.</p>
+<blockquote>
+<p>Answer: 55FCEEBB21270D9249E86F4B9DC7AA60</p>
+</blockquote>
+<hr />
+<h3 id="challenge-question">Challenge Question<a class="headerlink" href="#challenge-question" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>7) What is the name of the adversary group that Santa feared would attack KringleCon?                             </p>
+</blockquote>
+<p>For this question you receive the following message from Alice Bluebird:</p>
+<p><a href="../../images/obj/objective6/img5.png"><img alt="Objective 6" src="../../images/obj/objective6/img5.png" /></a></p>
+<blockquote>
+<p>Ciphertext: 7FXjP1lyfKbyDK/MChyf36h7</p>
+</blockquote>
+<p>RFC 7465 refers to RC4. It mentions that the secret code is Santa's favorite phrase. From the Talk for this objective, you know this phrase is "Stay Frosty".</p>
+<p>Use <a href="https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9%2B/%3D',true)RC4(%7B'option':'UTF8','string':'Stay%20Frosty'%7D,'Latin1','Latin1')&amp;input=N0ZYalAxbHlmS2J5REsvTUNoeWYzNmg3Cg">CyberChef</a> to decode the adversary group name.</p>
+<p><a href="../../images/obj/objective6/img6.png"><img alt="Objective 6" src="../../images/obj/objective6/img6.png" /></a></p>
+<blockquote>
+<p>Answer: The Lollipop Guild</p>
+</blockquote>
+<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
+<p>The name of the adversary group that Santa feared would attack the KringleCon is <code>The Lollipop Guild</code>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective5/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                5) Open HID Lock
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../objective7/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                7) Solve the Sleigh's CAN-D-BUS Problem
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

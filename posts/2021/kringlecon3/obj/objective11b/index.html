@@ -1,0 +1,1138 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../images/logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>11b) Naughty/Nice List with Blockchain Investigation Part 2 - Kringlecon 3: French Hens</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objective-11b-naughtynice-list-with-blockchain-investigation-part-2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Kringlecon 3: French Hens" class="md-header-nav__button md-logo" aria-label="Kringlecon 3: French Hens">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Kringlecon 3: French Hens
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              11b) Naughty/Nice List with Blockchain Investigation Part 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Kringlecon 3: French Hens" class="md-nav__button md-logo" aria-label="Kringlecon 3: French Hens">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Kringlecon 3: French Hens
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://www.sharif.org" class="md-nav__link">
+      Back to Sharif.org
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective3/" class="md-nav__link">
+      3) Point-of-Sale Password Recovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective5/" class="md-nav__link">
+      5) Open HID Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective6/" class="md-nav__link">
+      6) Splunk Challenge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective7/" class="md-nav__link">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective9/" class="md-nav__link">
+      9) ARP Shenanigans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11a/" class="md-nav__link">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11b) Naughty/Nice List with Blockchain Investigation Part 2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through" class="md-nav__link">
+    Walk-through
+  </a>
+  
+    <nav class="md-nav" aria-label="Walk-through">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-modified-block" class="md-nav__link">
+    Finding the modified block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-modified-bytes" class="md-nav__link">
+    Finding the modified "bytes"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-bytes-back" class="md-nav__link">
+    Changing the bytes back
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-sha256-of-the-original-block" class="md-nav__link">
+    Finding the SHA256 of the "original block"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/linux/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/kiosk/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/tmux/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/modem/" class="md-nav__link">
+      33.6kbps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/unprep/" class="md-nav__link">
+      Speaker UNPrep
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/canbus/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/redis/" class="md-nav__link">
+      Redis Bug hunt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/scapy/" class="md-nav__link">
+      Scapy Prepper
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/snowball/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/elfcode/" class="md-nav__link">
+      Programming Concepts (The ELF C0DE)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/sort/" class="md-nav__link">
+      SORT-O-MATIC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminal/greet/" class="md-nav__link">
+      Greeting Cards
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/items/" class="md-nav__link">
+      Items
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/hints/" class="md-nav__link">
+      Hints
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/map/" class="md-nav__link">
+      Map/Directory
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/narrative/" class="md-nav__link">
+      Narrative
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/eastereggs/" class="md-nav__link">
+      Easter eggs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/artmusic/" class="md-nav__link">
+      Art/Music
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/talks/" class="md-nav__link">
+      Talks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/booths/" class="md-nav__link">
+      Booths
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/credits/" class="md-nav__link">
+      Credits
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/answers/" class="md-nav__link">
+      Answers
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walk-through" class="md-nav__link">
+    Walk-through
+  </a>
+  
+    <nav class="md-nav" aria-label="Walk-through">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-modified-block" class="md-nav__link">
+    Finding the modified block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-modified-bytes" class="md-nav__link">
+    Finding the modified "bytes"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-bytes-back" class="md-nav__link">
+    Changing the bytes back
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-sha256-of-the-original-block" class="md-nav__link">
+    Finding the SHA256 of the "original block"
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="objective-11b-naughtynice-list-with-blockchain-investigation-part-2">Objective 11b - Naughty/Nice List with Blockchain Investigation Part 2<a class="headerlink" href="#objective-11b-naughtynice-list-with-blockchain-investigation-part-2" title="Permanent link">&para;</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h2>
+<p><a href="../../images/obj/objective11b/img1.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img1.png" /></a></p>
+<hr />
+<p>Tinsel Upatree tells you the following after you solve Objective 11a:</p>
+<blockquote>
+<p>Wow, it really was all about abusing the pseudo-random sequence!
+I've been thinking, do you think someone could try and cheat the Naughty/Nice Blockchain with this same technique?
+I remember you told us about how if you have control over to bytes in a file, it's easy to create MD5 <a href="https://github.com/corkami/collisions">hash collisions</a>.
+But the nonce would have to be known ahead of time.
+We know that the blockchain works by "chaining" blocks together.
+There's no way you know who could change it without messing up the chain, right Santa?
+I'm going to look closer to spot if any of the blocks have been changed.
+If Jack was able to change the block AND the document without changing the hash... that would require a very <a href="https://github.com/cr-marcstevens/hashclash">UNIque hash COLLision</a>.
+Apparently Jack was able to change just 4 bytes in the block to completely change everything about it. It's like some sort of <a href="https://speakerdeck.com/ange/colltris">evil game</a> to him.
+I think I need to review my (Human Behavior Naughty/Niceness)[<a href="https://www.youtube.com/watch?v=7rLMl88p-ec">https://www.youtube.com/watch?v=7rLMl88p-ec</a>] curriculum again.</p>
+</blockquote>
+<h2 id="walk-through">Walk-through<a class="headerlink" href="#walk-through" title="Permanent link">&para;</a></h2>
+<p>The terminal challenge for this objective is the "Snowball fight" that is offered by Tangle Coalbox in the UNPreparedness room. This is the same terminal challenge as objective 11a.</p>
+<p>Solving this terminal challenge provide additional hints for this objective. To view the hints or the walk-through for this terminal challenge, use the menu on the left.</p>
+<p>To start this objective, go to Santa's Office and Download the <a href="https://download.holidayhackchallenge.com/2020/blockchain.dat">blockchain data</a> and <a href="https://download.holidayhackchallenge.com/2020/OfficialNaughtyNiceBlockchainEducationPack.zip">OfficialNaughtyNiceBlockchainEducationPack.zip</a>.</p>
+<p>There is a <a href="https://www.youtube.com/watch?v=Jo5Nlbqd-Vg">talk</a> that may be helpful for this challenge.</p>
+<p>To solve this challenge you need to read the blockchain, <code>blockchain.dat</code>, and find the block that Jack has altered. You know the SHA256 for this block is<code>58a3b9335a6ceb0234c12d35a0564c4e f0e90152d0eb2ce2082383b38028a90f</code>. You need to iterate through the blocks until you find a block that has the correct SHA256 hash. Once you find this block, dump the documents attached to the block and the block itself into separate files. From the hints, we know Jack has altered a total of 4 Bytes in the block. From analyses of these files, we can find the 4 bytes that Jack has altered.</p>
+<p>You then need to modify these four bytes to their original value and save the new block. Calculate the SHA256 of this new block to solve the objective.</p>
+<h3 id="finding-the-modified-block">Finding the modified block<a class="headerlink" href="#finding-the-modified-block" title="Permanent link">&para;</a></h3>
+<p>Extract OfficialNaughtyNiceBlockchainEducationPack.zip to a new folder. Update the <code>Block()</code> class in the <code>naughty_nice.py</code> script by adding the following:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#new function to calculate Hash of the block</span>
+<span class="k">def</span> <span class="nf">hash_block</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">hash_obj</span> <span class="o">=</span> <span class="n">MD5</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+    <span class="n">hash_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">block_data</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">hash_obj</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+<span class="c1">#new function to calculate SHA256 Hash of the block</span>
+<span class="k">def</span> <span class="nf">hash_SHA256_block</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">hash_obj</span> <span class="o">=</span> <span class="n">SHA256</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+    <span class="n">hash_obj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">block_data</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">hash_obj</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</code></pre></div>
+<p>The above functions will calculate the MD5 and SHA256 hash of a block.</p>
+<p>Update the main in <code>naughty_nice.py</code> as follow:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="c1"># Note: This is how you would load and verify a blockchain contained in a file called blockchain.dat</span>
+
+ <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;official_public.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+     <span class="n">official_public_key</span> <span class="o">=</span> <span class="n">RSA</span><span class="o">.</span><span class="n">importKey</span><span class="p">(</span><span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+ <span class="n">c2</span> <span class="o">=</span> <span class="n">Chain</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;blockchain.dat&#39;</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C2: Block chain verify: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">verify_chain</span><span class="p">(</span><span class="n">official_public_key</span><span class="p">)))</span>
+ <span class="nb">print</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">))</span>
+
+ <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+ <span class="n">targetBlock_SHA256</span> <span class="o">=</span><span class="s2">&quot;58a3b9335a6ceb0234c12d35a0564c4ef0e90152d0eb2ce2082383b38028a90f&quot;</span>
+ <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">)):</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">full_hash_SHA256</span><span class="p">()</span> <span class="o">==</span><span class="n">targetBlock_SHA256</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matched Blocked&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block [&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;].index:&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block [&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;].hash:&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hash</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block [&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;] Calculated Hash (MD5)&quot;</span><span class="p">,</span> <span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hash_block</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block [&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;] Calculated Hash (SHA256)&quot;</span><span class="p">,</span> <span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hash_SHA256_block</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block [&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;].previous_hash&quot;</span><span class="p">,</span> <span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">previous_hash</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block [&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;] signed Hash(MD5)&quot;</span><span class="p">,</span> <span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">full_hash</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Block [&quot;</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;] signed Hash (SHA256)&quot;</span><span class="p">,</span> <span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">full_hash_SHA256</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===========&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===========&quot;</span><span class="p">)</span>
+
+         <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">doc_count</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+             <span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dump_doc</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+         <span class="c1"># save a block before and after for comparison</span>
+         <span class="n">c2</span><span class="o">.</span><span class="n">save_a_block</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+         <span class="n">c2</span><span class="o">.</span><span class="n">save_a_block</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+         <span class="n">c2</span><span class="o">.</span><span class="n">save_a_block</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+
+         <span class="c1"># save a block before and after for comparison</span>
+         <span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+         <span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+         <span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+
+ <span class="n">hash_md5</span> <span class="o">=</span>  <span class="n">MD5</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+ <span class="n">hash_sha256</span> <span class="o">=</span> <span class="n">SHA256</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+ <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;block1010.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+     <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+         <span class="n">hash_md5</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+         <span class="n">hash_sha256</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;block1010.dat(md5):&quot;</span><span class="p">,</span><span class="n">hash_md5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;block1010.dat(sha256):&quot;</span><span class="p">,</span><span class="n">hash_sha256</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
+</code></pre></div>
+<p>The above code will do the following:</p>
+<ol>
+<li>Load the blockchain 'blockchain.dat'.</li>
+<li>Keep iterating through the blocks until you find the block with the SHA256 '58a3b9335a6ceb0234c12d35a0564c4ef0e90152d0eb2ce2082383b38028a90f'</li>
+<li>Once found, write the block, the previous, and proceeding blocks to files.</li>
+<li>Dump all the attachments for the matched block.</li>
+</ol>
+<p>Run <code>naughty_nice.py</code> to find the altered block. Partial results are shown below:</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img3.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img3.png" /></a></p>
+<p><a href="../../images/obj/objective11b/img2.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img2.png" /></a></p>
+<hr />
+<h3 id="finding-the-modified-bytes">Finding the modified "bytes"<a class="headerlink" href="#finding-the-modified-bytes" title="Permanent link">&para;</a></h3>
+<p>From the above screenshot, you can see the altered block is the block <code>129459</code> which has the correct SHA256 Hash. This block has two attachments. This block shows that the individual was <code>1 (Nice)</code> with the maximum score for <code>FFFFFFFF</code>.</p>
+<p>A good assumption is that Jack is likely "naughty", which means one of the changed bytes is the nice/naughty "sign".</p>
+<p>One of the attachments to block <code>129459</code> is a ".pdf" file (<a href="https://www.virustotal.com/gui/file/140a330080fe6683d3ac00bddb8eeaeedf4e1d8ad71213ce822cb905b9f5d2f2/detection">Virustotal</a>). This attachment corroborates the story that Jack is very nice. So if our first assumption is correct, Jack somehow must have changed the whole content of the PDF file.</p>
+<p>PDF files are documents that have tree structures. Here is an example of what a logical structure of a typical document looks like.</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img5.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img5.png" /></a></p>
+<hr />
+<p>Open the PDF file in a text editor and examine the objects. You can see that there are two trees in the document. One tree starts at object 2 and the other at object 3. The current catalogue points to object 2 (tree).</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img4.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img4.png" /></a></p>
+<hr />
+<p>Change this byte from 2 to 3 to point to object 3 (tree).</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img6.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img6.png" /></a></p>
+<hr />
+<p>Reopening the PDF file reveals the content of the PDF has changed to a different document. This document portrays Jack as being naughty.</p>
+<p>Here <a href="https://github.com/Mo4n6/KringleCon3/blob/main/Objective%2011b/129459%20-%20Modified%20by%20Jack.pdf">Original PDF</a> attached to the blockchain and <a href="https://github.com/Mo4n6/KringleCon3/blob/main/Objective%2011b/129459%20-%20Fixed.pdf">Fixed PDF</a>.</p>
+<h3 id="changing-the-bytes-back">Changing the bytes back<a class="headerlink" href="#changing-the-bytes-back" title="Permanent link">&para;</a></h3>
+<p>To figure this out on your own, read the hints, review the <a href="https://speakerdeck.com/ange/colltris">slides</a>, watch the <a href="https://www.youtube.com/watch?v=7rLMl88p-ec">talk</a> for this objective. You need a basic understanding of Hash collision and specifically UNICOL.</p>
+<p>One of the most useful slides that explain what UNICOL is doing is the following:</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img7.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img7.png" /></a></p>
+<hr />
+<p>UNICOL is adding 1 to the 10<sup>th</sup> CHAR of the PREFIX and removing 1 from the 10<sup>th</sup> CHAR of the 2<sup>nd</sup> Block. This keeps the MD5 hash of the original and new blocks to be identical.</p>
+<p>It just happens that both the modified bytes are on the 10<sup>th</sup> Byte of the 64K Blocks.</p>
+<p>To undo what UNICOL does, we need to subtract 1 from the PREFIX and add one to the 10<sup>th</sup> CHAR of the second block.</p>
+<p>Open the <code>block1010.dat</code> in a hexeditor and change the 4 bytes back. Here is a screenshot that shows the changing of the first two bytes. The sign "nice" is changed to "naughty". The corresponding 10<sup>th</sup> CHAR of the second block is also changed.</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img8.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img8.png" /></a></p>
+<hr />
+<p>Here is a screenshot that shows the changing of the second two bytes. The catalogue is changed from object 2 to 3. The corresponding 10<sup>th</sup> CHAR of the second block is also changed.</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img9.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img9.png" /></a></p>
+<hr />
+<p>Save the modified block as "blockchain.dat_2"</p>
+<h3 id="finding-the-sha256-of-the-original-block">Finding the SHA256 of the "original block"<a class="headerlink" href="#finding-the-sha256-of-the-original-block" title="Permanent link">&para;</a></h3>
+<p>Once you fix the modified bytes, you save the block as "block1010.dat_2". Add this code to the end of <code>naughty_nice.py</code> to calculate the SHA256 of the "original" block.</p>
+<div class="highlight"><pre><span></span><code><span class="n">hash_md5</span> <span class="o">=</span>  <span class="n">MD5</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="n">hash_sha256</span> <span class="o">=</span> <span class="n">SHA256</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;block1010_2.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="n">hash_md5</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+        <span class="n">hash_sha256</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;block1010.dat_2:&quot;</span><span class="p">,</span><span class="n">hash_md5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;block1010.dat_2(sha256):&quot;</span><span class="p">,</span><span class="n">hash_sha256</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
+</code></pre></div>
+<p>Here is a screenshot that shows the MD5 and SHA256 of the two blocks. You can see they both have the same MD5 hash but different SHA256 hashes.</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img10.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img10.png" /></a></p>
+<hr />
+<p>The updated <code>naughty_nice.py</code> code can be downloaded <a href="https://github.com/Mo4n6/KringleCon3/blob/main/Objective%2011b/naughty_nice.py">here</a>.</p>
+<p>After you solve the challenge, you need to go to Santa's office (as "Santa") and talk to the different elves. Here is what happens if you go to the office without the "Santa" skin.</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img11.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img11.png" /></a></p>
+<hr />
+<p>Change to Santa and go back to finish the game.</p>
+<hr />
+<p><a href="../../images/obj/objective11b/img12.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img12.png" /></a></p>
+<hr />
+<hr />
+<p><a href="../../images/obj/objective11b/img13.png"><img alt="Objective 11b" src="../../images/obj/objective11b/img13.png" /></a></p>
+<hr />
+<blockquote>
+<p>Eve Snowshoes:
+What a fantabulous job! Congratulations!
+What a fantabulous job! Congratulations!
+You MUST let us know how you did it!
+Feel free to show off your skills with some swag - only for our victors!</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>Santa:
+Thank you for foiling Jack’s foul plot!
+He sent that magical portrait so he could become me and destroy the holidays!
+Due to your incredible work, you have set everything right and saved the holiday season!
+Congratulations on a job well done!
+Ho Ho Ho!</p>
+</blockquote>
+<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
+<p>The SHA256 of the original block is:</p>
+<blockquote>
+<p>fff054f33c2134e0230efb29dad515064ac97aa8c68d33c58c01213a0d408afb</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective11a/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                11a) Naughty/Nice List with Blockchain Investigation Part 1
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../terminal/linux/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Linux Primer
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
