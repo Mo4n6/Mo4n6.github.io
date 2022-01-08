@@ -1,0 +1,1068 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../images/logo.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>Yara Analysis - Kringlecon 4 - Calling Birds!</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Kringlecon 4 - Calling Birds!" class="md-header__button md-logo" aria-label="Kringlecon 4 - Calling Birds!" data-md-component="logo">
+      
+  <img src="../../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kringlecon 4 - Calling Birds!
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Yara Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Kringlecon 4 - Calling Birds!" class="md-nav__button md-logo" aria-label="Kringlecon 4 - Calling Birds!" data-md-component="logo">
+      
+  <img src="../../../images/logo.png" alt="logo">
+
+    </a>
+    Kringlecon 4 - Calling Birds!
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.sharif.org" class="md-nav__link">
+        Back to sharif.org
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Objectives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Objectives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective1/" class="md-nav__link">
+        1) KringleCon Orientation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective2/" class="md-nav__link">
+        2) Where in the World is Caramel Santaigo?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective3/" class="md-nav__link">
+        3) Thaw Frost Tower's Entrance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective4/" class="md-nav__link">
+        4) Slot Machine Investigation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective5/" class="md-nav__link">
+        5) Strange USB Device
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective6/" class="md-nav__link">
+        6) Shellcode Primer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective7/" class="md-nav__link">
+        7) Printer Exploitation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective8/" class="md-nav__link">
+        8) Kerberoasting on an Open Fire
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective9/" class="md-nav__link">
+        9) Splunk!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective10/" class="md-nav__link">
+        10) Now Hiring!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective11/" class="md-nav__link">
+        11) Customer Complaint Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective12/" class="md-nav__link">
+        12) Frost Tower Website Checkup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Objectives/Objective13/" class="md-nav__link">
+        13) FPGA Programming
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Terminals
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Terminals
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal1/" class="md-nav__link">
+        Cranberry Pi Terminal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal2/" class="md-nav__link">
+        Exif Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal3/" class="md-nav__link">
+        Grepping for Gold
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal4/" class="md-nav__link">
+        Logic Muchers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal5/" class="md-nav__link">
+        IPv6 Sandbox
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal6/" class="md-nav__link">
+        Holiday Hero
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal7/" class="md-nav__link">
+        Shellcode Primer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal8/" class="md-nav__link">
+        HoHo … No
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Yara Analysis
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal10/" class="md-nav__link">
+        IMDS Exploration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal11/" class="md-nav__link">
+        Strace Ltrace Retrace
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal12/" class="md-nav__link">
+        Elf Code Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal13/" class="md-nav__link">
+        Frostavator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal14/" class="md-nav__link">
+        Bonus! Blue Log4Jack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terminal15/" class="md-nav__link">
+        Bonus! Red Log4Jack
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../items/" class="md-nav__link">
+        Items
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Hints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hints" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Hints
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ohints/" class="md-nav__link">
+        Objectives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thints/" class="md-nav__link">
+        Terminals
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../map/" class="md-nav__link">
+        Map
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../narrative/" class="md-nav__link">
+        Narrative
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../music/" class="md-nav__link">
+        Music
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../talks/" class="md-nav__link">
+        Talks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../booths/" class="md-nav__link">
+        Booths
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../answers/" class="md-nav__link">
+        Answers
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>Yara Analysis</h1>
+
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Terminal</label><label for="__tabbed_1_2">Walk-through</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="Term" src="../../../images/term/9/image1.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Details</p>
+<ul>
+<li><em>Location</em>: KringleCon/Entry</li>
+<li><em>Elf</em>: Fitzy Shortstack</li>
+</ul>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">Elf's Objective Message</p>
+<p>Hiya, I'm Fitzy Shortstack!
+I was just trying to learn a bit more about YARA with this here Cranberry Pi terminal.
+I mean, I'm not saying I'm worried about attack threats from that other con next door, but...
+OK. I AM worried. I've been thinking a bit about how malware might bypass YARA rules.
+If you can help me solve the issue in this terminal, I’ll understand YARA so much better! Would you please check it out so I can learn?
+And, I’ll tell you what – if you help me with YARA, I’ll give you some tips for Splunk!
+I think if you make small, innocuous changes to the executable, you can get it to run in spite of the YARA rules.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This terminal is located in Entry at KringoleCon. Solving this terminal challenge provides additional hints for objective 9. To view the hints for this terminal challenge use the menu on the left.</p>
+<p>To solve this terminal challenge you will need to modify <code>./the_critical_elf_app</code> enough to bypass yara.</p>
+<p>Run the application you will see the following error message:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>  <span class="o">~</span><span class="err">$</span> <span class="o">./</span><span class="n">the_critical_elf_app</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span class="n">yara_rule_135</span> <span class="o">./</span><span class="n">the_critical_elf_app</span>
+</code></pre></div>
+<p>The above message indicates yara rule 135 is being trigered. The yara rules are located in folder <code>./yara_rules/rules.yar</code>. Use the command <code>egrep 'yara_rule_135 ' yara_rules/rules.yar -A 12</code> to view rule 135.</p>
+<p><img alt="Term" src="../../../images/term/9/image2.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Editting Binary file</p>
+<p>To edit a binary file:</p>
+<ul>
+<li>
+<p>Open the binary file normally with vim vim <file name></p>
+</li>
+<li>
+<p>Convert them to xxd human-readable format :%!xxd</p>
+</li>
+<li>
+<p>Edit the hex part in the left</p>
+</li>
+<li>
+<p>Convert xxd-human readable format back to binary :%!xxd -r</p>
+</li>
+<li>
+<p>Save modified content :w</p>
+</li>
+</ul>
+</div>
+<p>Rule 135 is being triggered on the <code>candycane</code> string in <code>./the_critical_elf_app</code>.</p>
+<p>Run <code>vim ./the_critical_elf_app</code></p>
+<p>Type <code>:%!xxd</code></p>
+<p>Change the byte at 0x200E from 61 to 62. It will look something like this:</p>
+<p><img alt="Term" src="../../../images/term/9/image3.png" /></p>
+<p>Save the new file by entering <code>:w</code> in vim.</p>
+<p>Re-run <code>./the_critical_elf_app</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Answer to bypass rule 135</p>
+<p>Change the byte at 0x200E from 61 to 62</p>
+</div>
+<p>The above modifcation will bypass Yara rule 135, however a new rule is now being triggered.</p>
+<p><img alt="Term" src="../../../images/term/9/image4.png" /></p>
+<p>From the above results, you can see Rule 1056 is being triggered.</p>
+<p>Use this command to read the corresponding yara rule, <code>egrep 'yara_rule_1056 ' yara_rules/rules.yar -A 12</code>.</p>
+<p>This rule is looking for two series of hex values in the file. You can use xxd and grep to find where these matches are in <code>the_critical_elf_app</code>.</p>
+<p>Running <code>xxd the_critical_elf_app | grep '6c 6962 632e' -A 2</code> will show:</p>
+<p><img alt="Term" src="../../../images/term/9/image5.png" /></p>
+<p>This is being triggered on part of the file that can't be changed as it's a library name.</p>
+<p>Running <code>xxd the_critical_elf_app | grep '726f 6772 616d 2121' -A 2</code> will show:</p>
+<p><img alt="Term" src="../../../images/term/9/image6.png" /></p>
+<p>You can change the string "is program!!". Using the same above instructions, change the byte at 0x2054 from 72 to 73 to bypass this rule.</p>
+<div class="admonition success">
+<p class="admonition-title">Answer to bypass rule 1056</p>
+<p>Change the byte at 0x2054 from 72 to 73</p>
+</div>
+<p>Re-run the <code>the_critical_elf_app</code> program. The results are shown below:</p>
+<p><img alt="Term" src="../../../images/term/9/image7.png" /></p>
+<p>Yara Rule 1732 is now being triggered. Use <code>egrep 'yara_rule_1732 ' yara_rules/rules.yar -A 32</code> to read this rule.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>    <span class="n">rule</span> <span class="n">yara_rule_1732</span> <span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>     <span class="n">meta</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>        <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;binaries - alwayz_winter.exe&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>        <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;Santa&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>        <span class="n">reference</span> <span class="o">=</span> <span class="s2">&quot;North Pole Malware Research Lab&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>        <span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;1955-04-22&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="nb">hash</span> <span class="o">=</span> <span class="s2">&quot;c1e31a539898aab18f483d9e7b3c698ea45799e78bddc919a7dbebb1b40193a8&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>     <span class="n">strings</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        <span class="err">$</span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;This is critical for the execution of this program!!&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span class="err">$</span><span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;__frame_dummy_init_array_entry&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>        <span class="err">$</span><span class="n">s3</span> <span class="o">=</span> <span class="s2">&quot;.note.gnu.property&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="err">$</span><span class="n">s4</span> <span class="o">=</span> <span class="s2">&quot;.eh_frame_hdr&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>        <span class="err">$</span><span class="n">s5</span> <span class="o">=</span> <span class="s2">&quot;__FRAME_END__&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>        <span class="err">$</span><span class="n">s6</span> <span class="o">=</span> <span class="s2">&quot;__GNU_EH_FRAME_HDR&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>        <span class="err">$</span><span class="n">s7</span> <span class="o">=</span> <span class="s2">&quot;frame_dummy&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>        <span class="err">$</span><span class="n">s8</span> <span class="o">=</span> <span class="s2">&quot;.note.gnu.build-id&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="err">$</span><span class="n">s9</span> <span class="o">=</span> <span class="s2">&quot;completed.8060&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>        <span class="err">$</span><span class="n">s10</span> <span class="o">=</span> <span class="s2">&quot;_IO_stdin_used&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="err">$</span><span class="n">s11</span> <span class="o">=</span> <span class="s2">&quot;.note.ABI-tag&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>        <span class="err">$</span><span class="n">s12</span> <span class="o">=</span> <span class="s2">&quot;naughty string&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="err">$</span><span class="n">s13</span> <span class="o">=</span> <span class="s2">&quot;dastardly string&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="err">$</span><span class="n">s14</span> <span class="o">=</span> <span class="s2">&quot;__do_global_dtors_aux_fini_array_entry&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>        <span class="err">$</span><span class="n">s15</span> <span class="o">=</span> <span class="s2">&quot;__libc_start_main@@GLIBC_2.2.5&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>        <span class="err">$</span><span class="n">s16</span> <span class="o">=</span> <span class="s2">&quot;GLIBC_2.2.5&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>        <span class="err">$</span><span class="n">s17</span> <span class="o">=</span> <span class="s2">&quot;its_a_holly_jolly_variable&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>        <span class="err">$</span><span class="n">s18</span> <span class="o">=</span> <span class="s2">&quot;__cxa_finalize&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>        <span class="err">$</span><span class="n">s19</span> <span class="o">=</span> <span class="s2">&quot;HolidayHackChallenge</span><span class="si">{NotReallyAFlag}</span><span class="s2">&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>        <span class="err">$</span><span class="n">s20</span> <span class="o">=</span> <span class="s2">&quot;__libc_csu_init&quot;</span> <span class="n">fullword</span> <span class="n">ascii</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>     <span class="n">condition</span><span class="p">:</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>        <span class="n">uint32</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mh">0x02464c45</span> <span class="ow">and</span> <span class="n">filesize</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="n">KB</span> <span class="ow">and</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>        <span class="mi">10</span> <span class="n">of</span> <span class="n">them</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>   <span class="p">}</span>      
+</code></pre></div>
+<p>This rule is matching on the header of the file, if the filesize is less than 50KB.
+Use these commands to append the file to become greater than 50KB.</p>
+<div class="admonition success">
+<p class="admonition-title">Answer to bypass rule 1732</p>
+<p>~$ cat ./the_critical_elf_app &gt;&gt; ./the_critical_elf_app1</p>
+<p>~$ cat ./the_critical_elf_app1 &gt;&gt; ./the_critical_elf_app</p>
+<p>~$ cat ./the_critical_elf_app1 &gt;&gt; ./the_critical_elf_app</p>
+<p>~$ cat ./the_critical_elf_app1 &gt;&gt; ./the_critical_elf_app</p>
+</div>
+<p>This will make the file 66.8KB as shown below:</p>
+<p><img alt="Term" src="../../../images/term/9/image8.png" /></p>
+<p>Run the newly created file to see the final results:</p>
+<p><img alt="Term" src="../../../images/term/9/image9.png" /></p>
+</div>
+</div>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Terminal8/" class="md-footer__link md-footer__link--prev" aria-label="Previous: HoHo … No" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              HoHo … No
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Terminal10/" class="md-footer__link md-footer__link--next" aria-label="Next: IMDS Exploration" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              IMDS Exploration
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "content.tabs.link"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>
