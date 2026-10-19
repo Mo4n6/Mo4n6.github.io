@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moved to tools.sharif.org</title>
+  <meta name="robots" content="noindex">
+  <!--
+    The tools moved from www.sharif.org/tools/ to their own hostname. The hash
+    carries the route (#/husk) and never reaches a server, so the move is made
+    here, in the page, with the hash and query kept. The refresh is for a
+    browser without scripts, and lands on the home page.
+  -->
+  <script>
+    location.replace('https://tools.sharif.org/' + location.search + location.hash);
+  </script>
+  <meta http-equiv="refresh" content="0; url=https://tools.sharif.org/">
+</head>
+<body>
+  <p>The tools moved to <a href="https://tools.sharif.org/">tools.sharif.org</a>.</p>
+</body>
+</html>
