@@ -1,0 +1,25 @@
+---
+layout: page
+title: Not found
+permalink: /404.html
+---
+
+<script>
+  // Anything that was under /tools/ moved to tools.sharif.org. A route such as
+  // /tools/husk keeps its /tools/ prefix, which the app there still resolves;
+  // a file such as /tools/dead-letter.html loses it, because the files moved
+  // to the root of the new hostname.
+  (function (location) {
+    var match = location.pathname.match(/^\/tools(\/.*)?$/);
+    if (!match) {
+      return;
+    }
+    var rest = match[1] || '/';
+    var path = rest === '/' || /\.[a-z0-9]+$/i.test(rest) ? rest : '/tools' + rest;
+    location.replace('https://tools.sharif.org' + path + location.search + location.hash);
+  }(window.location));
+</script>
+
+# Not found
+
+There is nothing at this address. The [home page](/) or the [archive](/archive.html) may have what you were after.
